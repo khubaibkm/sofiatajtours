@@ -1,27 +1,66 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Phone, Mail, Facebook, Twitter, Instagram, MessageCircle } from "lucide-react"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-secondary/20 transition-all duration-300">
-      <div className="bg-primary text-primary-foreground py-2 text-center text-sm font-medium">
-        <span>📞 Call us: +91-9876543210 | +91-8765432109 | 📧 hello@sofiajtajtours.com</span>
+    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur border-b border-secondary/20 transition-all duration-300">
+      <div className="bg-primary text-primary-foreground py-2 text-sm font-medium">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Left side - Call and Email */}
+          <div className="flex items-center gap-4 flex-wrap text-xs sm:text-sm">
+            <a href="tel:+919876543210" className="flex items-center gap-1 hover:text-secondary transition-colors">
+              <Phone size={14} />
+              <span className="hidden sm:inline">+91-9876543210</span>
+            </a>
+            <span className="hidden sm:inline">|</span>
+            <a href="tel:+918765432109" className="flex items-center gap-1 hover:text-secondary transition-colors">
+              <Phone size={14} />
+              <span className="hidden sm:inline">+91-8765432109</span>
+            </a>
+            <span className="hidden sm:inline">|</span>
+            <a href="mailto:hello@sofiajtajtours.com" className="flex items-center gap-1 hover:text-secondary transition-colors">
+              <Mail size={14} />
+              <span className="hidden sm:inline">hello@sofiajtajtours.com</span>
+            </a>
+          </div>
+
+          {/* Right side - Social Media Icons */}
+          <div className="flex items-center gap-3">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Facebook">
+              <Facebook size={16} />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Twitter">
+              <Twitter size={16} />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram">
+              <Instagram size={16} />
+            </a>
+            <a href="tel:+919876543210" className="hover:text-secondary transition-colors" aria-label="Phone">
+              <Phone size={16} />
+            </a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp">
+              <MessageCircle size={16} />
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 sm:h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
-              <span className="text-sm font-bold text-primary-foreground">ST</span>
-            </div>
-            <div className="hidden sm:flex flex-col">
-              <span className="font-serif font-bold text-primary text-base leading-none">Sofia</span>
-              <span className="text-xs text-secondary font-medium">Taj Tours</span>
+            <div className="relative w-38 sm:w-48 h-8 sm:h-13 group-hover:scale-105 transition-all duration-300">
+              <Image
+                src="/logo/logo.png"
+                alt="Sofia Taj Tours Logo"
+                fill
+                className="object-contain"
+              />
             </div>
           </Link>
 
@@ -29,37 +68,37 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-12">
             <Link
               href="/"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors relative group"
+              className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
             >
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="/tours?category=taj-mahal"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors relative group"
+              className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
             >
               Taj Mahal Tours
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="/tours?category=delhi"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors relative group"
+              className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
             >
               Delhi Tours
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="/tours?category=golden-triangle"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors relative group"
+              className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
             >
               Golden Triangle Tours
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors relative group"
+              className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
             >
-              Contact
+              Contact Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
             </Link>
           </nav>

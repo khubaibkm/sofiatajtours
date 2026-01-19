@@ -1,17 +1,22 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Phone, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-[#fffff]text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="w-10 h-10 bg-secondary text-primary rounded-sm flex items-center justify-center mb-4 font-bold text-lg">
-              ST
+            <div className="relative w-50 sm:w-60 h-12 sm:h-18">
+              <Image
+                src="/logo/logo.png"
+                alt="Sofia Taj Tours Logo"
+                fill
+                className="object-contain"
+              />
             </div>
-            <h3 className="font-serif font-bold text-lg mb-2">Sofia Taj Tours</h3>
             <p className="text-sm opacity-90">
               Experience the timeless beauty and majesty of the Taj Mahal with expertly curated tours.
             </p>
@@ -19,7 +24,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-primary">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="opacity-80 hover:opacity-100 transition-all duration-300">
@@ -41,7 +46,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">Contact</h4>
+            <h4 className="font-semibold mb-4 text-primary">Contact</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Phone size={16} />
@@ -64,7 +69,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">Newsletter</h4>
+            <h4 className="font-semibold mb-4 text-primary">Newsletter</h4>
             <p className="text-sm opacity-90 mb-3">Subscribe for exclusive offers and travel guides.</p>
             <form className="flex flex-col gap-2">
               <input
@@ -73,7 +78,7 @@ export function Footer() {
                 className="px-3 py-2 rounded-sm bg-primary-foreground/15 text-primary-foreground placeholder:opacity-60 text-sm"
                 required
               />
-              <button className="px-3 py-2 bg-secondary text-primary rounded-sm font-medium text-sm hover:bg-secondary/90 transition-all duration-300">
+              <button className="px-3 py-2 bg-primary text-white rounded-sm font-medium text-sm hover:bg-primary/90 hover:scale-105 transition-all duration-300">
                 Subscribe
               </button>
             </form>
