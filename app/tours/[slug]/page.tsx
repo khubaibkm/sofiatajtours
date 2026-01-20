@@ -4,8 +4,9 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import { BreadcrumbSchema, TouristTripSchema } from "@/components/schema-markup"
+import { WhatsAppWidget } from "@/components/whatsapp-widget"
 import { tours } from "@/data/tours"
-import { Calendar, MapPin, DollarSign, ArrowLeft } from "lucide-react"
+import { Calendar, MapPin, DollarSign, ArrowLeft, Star, Check } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
@@ -19,23 +20,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!tour) {
     return {
-      title: "Tour Not Found - Wanderlust",
+      title: "Tour Not Found - Sofia Taj Tours",
       description: "The tour you are looking for does not exist.",
     }
   }
 
   return {
-    metadataBase: new URL("https://wanderlust.com"),
-    title: `${tour.title} - Wanderlust Tours | Guided Tour`,
+    metadataBase: new URL("https://sofiatajtours.com"),
+    title: `${tour.title} - Sofia Taj Tours | Book Now`,
     description: tour.description,
-    keywords: `${tour.location}, tour, travel, vacation, adventure, guided tour, destination`,
+    keywords: `${tour.location}, ${tour.title}, Taj Mahal tour, India tour, guided tour, private tour, ${tour.category}`,
     alternates: {
-      canonical: `https://wanderlust.com/tours/${tour.slug}`,
+      canonical: `https://sofiatajtours.com/tours/${tour.slug}`,
     },
     openGraph: {
-      title: `${tour.title} - Wanderlust Tours`,
+      title: `${tour.title} - Sofia Taj Tours`,
       description: tour.description,
-      url: `https://wanderlust.com/tours/${tour.slug}`,
+      url: `https://sofiatajtours.com/tours/${tour.slug}`,
       type: "website",
       images: [
         {
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${tour.title} - Wanderlust Tours`,
+      title: `${tour.title} - Sofia Taj Tours`,
       description: tour.description,
       images: [tour.images[0]],
     },
@@ -70,9 +71,9 @@ export default async function TourDetailPage({ params }: Props) {
   }
 
   const breadcrumbItems = [
-    { name: "Home", url: "https://wanderlust.com" },
-    { name: "Tours", url: "https://wanderlust.com/tours" },
-    { name: tour.title, url: `https://wanderlust.com/tours/${tour.slug}` },
+    { name: "Home", url: "https://sofiatajtours.com" },
+    { name: "Tours", url: "https://sofiatajtours.com/tours" },
+    { name: tour.title, url: `https://sofiatajtours.com/tours/${tour.slug}` },
   ]
 
   return (
@@ -104,7 +105,7 @@ export default async function TourDetailPage({ params }: Props) {
 
         {/* Hero Image Gallery */}
         <section className="relative h-[400px] md:h-[500px] bg-muted overflow-hidden">
-          <Image src={tour.images[0] || "/placeholder.svg"} alt={tour.title} fill className="object-cover" priority />
+          <Image src={tour.images[0] || "/placeholder.svg"} alt={tour.title} fill className="object-cover object-top" priority />
           <div className="absolute inset-0 bg-black/20" />
         </section>
 
@@ -114,10 +115,10 @@ export default async function TourDetailPage({ params }: Props) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Content */}
               <div className="lg:col-span-2">
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{tour.title}</h1>
+                <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">{tour.title}</h1>
 
                 {/* Quick Info */}
-                <div className="flex flex-wrap gap-6 mb-8 pb-8 border-b border-border">
+                <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-border">
                   <div className="flex items-center gap-2">
                     <MapPin className="text-primary" size={20} />
                     <span className="text-foreground font-medium">{tour.location}</span>
@@ -126,11 +127,35 @@ export default async function TourDetailPage({ params }: Props) {
                     <Calendar className="text-primary" size={20} />
                     <span className="text-foreground font-medium">{tour.duration}</span>
                   </div>
+                  {tour.reviews && (
+                    <div className="flex items-center gap-2">
+                      <Star className="text-secondary fill-secondary" size={20} />
+                      <span className="text-foreground font-medium">{tour.reviews} Reviews</span>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <DollarSign className="text-primary" size={20} />
                     <span className="text-foreground font-medium">From ${tour.price}</span>
+                    {tour.originalPrice && (
+                      <span className="text-muted-foreground line-through text-sm">${tour.originalPrice}</span>
+                    )}
                   </div>
                 </div>
+
+                {/* Features */}
+                {tour.features && tour.features.length > 0 && (
+                  <div className="flex flex-wrap gap-3 mb-8">
+                    {tour.features.map((feature, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 text-secondary rounded-sm font-medium text-sm"
+                      >
+                        <Check size={16} />
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* Description */}
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{tour.description}</p>
@@ -174,8 +199,18 @@ export default async function TourDetailPage({ params }: Props) {
                 <div className="sticky top-24 p-6 bg-card rounded-xl border border-border shadow-sm">
                   <div className="mb-6">
                     <p className="text-muted-foreground text-sm">Starting from</p>
-                    <p className="text-4xl font-bold text-primary">${tour.price}</p>
+                    <div className="flex items-baseline gap-3">
+                      <p className="text-4xl font-bold text-primary">${tour.price}</p>
+                      {tour.originalPrice && (
+                        <p className="text-xl text-muted-foreground line-through">${tour.originalPrice}</p>
+                      )}
+                    </div>
                     <p className="text-muted-foreground text-sm mt-1">per person</p>
+                    {tour.originalPrice && (
+                      <p className="text-secondary font-semibold text-sm mt-2">
+                        Save ${(tour.originalPrice - tour.price).toFixed(2)} ({Math.round(((tour.originalPrice - tour.price) / tour.originalPrice) * 100)}% OFF)
+                      </p>
+                    )}
                   </div>
 
                   <Link
@@ -241,6 +276,7 @@ export default async function TourDetailPage({ params }: Props) {
         />
       </main>
       <Footer />
+      <WhatsAppWidget />
     </>
   )
 }

@@ -11,11 +11,11 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sofiatajtours.com"),
-  title: "Sofia Taj Tours - Premium Taj Mahal Experience | Luxury Tours in Agra",
+  title: "Sofia Taj Tours - Taj Mahal Tours from Delhi | Golden Triangle Tour Packages",
   description:
-    "Discover the timeless beauty of the Taj Mahal with Sofia Taj Tours. Luxury guided experiences, sunrise tours, photography packages, and spiritual journeys to India's most iconic monument.",
+    "Book your Taj Mahal tour from Delhi with Sofia Taj Tours. Offering same-day tours, Golden Triangle packages, Delhi city tours, and customized India tours with up to 30% discount. 24/7 support & free cancellation.",
   keywords:
-    "Taj Mahal tours, Agra tours, luxury travel, sunrise tour, photography tour, spiritual journey, Mughal heritage, Indian tourism",
+    "Taj Mahal tours from Delhi, Golden Triangle tour, Delhi city tours, Agra tours, Jaipur tours, India tour packages, private tours India, Taj Mahal sunrise tour, same day Agra tour, India travel",
   authors: [{ name: "Sofia Taj Tours" }],
   creator: "Sofia Taj Tours",
   publisher: "Sofia Taj Tours",
@@ -28,23 +28,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://sofiatajtours.com",
     siteName: "Sofia Taj Tours",
-    title: "Sofia Taj Tours - Experience the Taj Mahal",
-    description: "Luxury guided tours to the Taj Mahal with expert guides and unforgettable experiences.",
+    title: "Sofia Taj Tours - Taj Mahal & Golden Triangle Tour Packages",
+    description: "Book Taj Mahal tours from Delhi, Golden Triangle packages & Delhi city tours with up to 30% discount. Free cancellation & 24/7 support.",
     images: [
       {
-        url: "/travel-experience.jpg",
+        url: "/images/taj (1).jpg",
         width: 1200,
-        height: 1200,
+        height: 800,
         alt: "Sofia Taj Tours - Taj Mahal Experience",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sofia Taj Tours - Taj Mahal Experiences",
-    description: "Premium luxury tours to India's most iconic monument.",
+    title: "Sofia Taj Tours - Taj Mahal & India Tour Packages",
+    description: "Book Taj Mahal tours from Delhi with up to 30% discount. Private guided tours with free cancellation.",
     creator: "@sofiatajtours",
-    images: ["/travel-experience.jpg"],
+    images: ["/images/taj (1).jpg"],
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://sofiatajtours.com",
   },
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export const viewport = {
