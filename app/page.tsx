@@ -64,55 +64,6 @@ export default function Home() {
           />
         </section>
 
-        {/* Why Taj Mahal Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-                The Monument of Eternal Love
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-6">
-                The Taj Mahal stands as a testament to love, beauty, and architectural perfection. Built by Emperor Shah
-                Jahan in memory of his beloved wife, it remains one of the world's most magnificent structures.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Heart,
-                  title: "Symbol of Love",
-                  description: "An eternal monument to one of history's greatest love stories",
-                },
-                {
-                  icon: MapPin,
-                  title: "Architectural Masterpiece",
-                  description: "Stunning marble inlays and perfect symmetry spanning 73 acres",
-                },
-                {
-                  icon: Users,
-                  title: "Cultural Heritage",
-                  description: "UNESCO World Heritage Site and cultural pride of India",
-                },
-              ].map((feature, index) => {
-                const Icon = feature.icon
-                return (
-                  <div key={index} className="p-8 bg-card rounded-lg border border-border/50 hover-lift text-center">
-                    <div className="flex justify-center mb-4">
-                      <div className="p-4 bg-secondary/20 rounded-lg">
-                        <Icon className="text-secondary" size={32} />
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-semibold text-foreground mb-3">{feature.title}</h3>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* Featured Tours */}
         <section className="py-20 md:py-28 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -173,24 +124,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {[
                 {
-                  title: "Amazing Offers",
-                  description: "We are currently offering up to a 30% discount on all our tours.",
-                  icon: "🎁",
-                },
-                {
                   title: "24*7 Assistance",
                   description: "Call us, mail us or Whatsapp us at any time for any assistance.",
                   icon: "📞",
-                },
-                {
-                  title: "Prompt Bookings",
-                  description: "Last-minute bookings are never an issue with us. Make every holiday count!",
-                  icon: "⚡",
-                },
-                {
-                  title: "Free Cancellation",
-                  description: "Any cancellation 24 hours before the trip will receive a full refund.",
-                  icon: "✅",
                 },
                 {
                   title: "Book Now & Pay On Arrival",
