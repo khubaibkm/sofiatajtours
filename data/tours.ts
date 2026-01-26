@@ -228,11 +228,11 @@ export const tours: Tour[] = [
     category: "delhi",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (98).JPG",
+      "/images/taj (98).jpg",
       "/images/taj (94).jpg",
-      "/images/taj (47).JPG",
-      "/images/taj (98).JPG",
-      "/images/taj (11).JPeG",
+      "/images/taj (47).jpg",
+      "/images/taj (98).jpg",
+      "/images/taj (11).jpeg",
     ],
     highlights: [
       "See India Gate beautifully illuminated at night",
@@ -268,7 +268,7 @@ export const tours: Tour[] = [
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
       "/images/taj (91).jpg",
-      "/images/taj (63).JPG",
+      "/images/taj (63).jpg",
       "/images/taj (48).jpg",
       "/images/taj (18).jpeg",
       "/images/taj (59).jpg",
@@ -318,12 +318,12 @@ export const tours: Tour[] = [
     category: "golden-triangle",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (92).JPG",
-      "/images/taj (19).JPeG",
-      "/images/taj (8).JPeG",
-      "/images/taj (45).JPG",
-      "/images/taj (43).JPG",
-      "/images/taj (14).JPeG",
+      "/images/taj (92).jpg",
+      "/images/taj (19).jpeg",
+      "/images/taj (8).jpeg",
+      "/images/taj (45).jpg",
+      "/images/taj (43).jpg",
+      "/images/taj (14).jpeg",
     ],
     videos: ["/videos/taj (4).mp4", "/videos/taj (5).mp4"],
     highlights: [
