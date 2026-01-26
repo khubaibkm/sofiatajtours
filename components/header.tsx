@@ -14,19 +14,14 @@ export function Header() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Left side - Call and Email */}
           <div className="flex items-center gap-4 flex-wrap text-xs sm:text-sm">
-            <a href="tel:+919876543210" className="flex items-center gap-1 hover:text-secondary transition-colors">
+            <a href="tel:+919368862429" className="flex items-center gap-1 hover:text-secondary transition-colors">
               <Phone size={14} />
-              <span className="hidden sm:inline">+91-9876543210</span>
+              <span className="hidden sm:inline">+91-9368862429</span>
             </a>
             <span className="hidden sm:inline">|</span>
-            <a href="tel:+918765432109" className="flex items-center gap-1 hover:text-secondary transition-colors">
-              <Phone size={14} />
-              <span className="hidden sm:inline">+91-8765432109</span>
-            </a>
-            <span className="hidden sm:inline">|</span>
-            <a href="mailto:hello@sofiajtajtours.com" className="flex items-center gap-1 hover:text-secondary transition-colors">
+            <a href="mailto:sofiatajtours@gmail.com" className="flex items-center gap-1 hover:text-secondary transition-colors">
               <Mail size={14} />
-              <span className="hidden sm:inline">hello@sofiajtajtours.com</span>
+              <span className="hidden sm:inline">sofiatajtours@gmail.com</span>
             </a>
           </div>
 
@@ -41,10 +36,10 @@ export function Header() {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="Instagram">
               <Instagram size={16} />
             </a>
-            <a href="tel:+919876543210" className="hover:text-secondary transition-colors" aria-label="Phone">
+            <a href="tel:+919368862429" className="hover:text-secondary transition-colors" aria-label="Phone">
               <Phone size={16} />
             </a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp">
+            <a href="https://wa.me/919368862429" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" aria-label="WhatsApp">
               <MessageCircle size={16} />
             </a>
           </div>
@@ -104,7 +99,7 @@ export function Header() {
           </nav>
 
           <Link
-            href="/contact"
+            href="/tours"
             className="hidden md:inline-flex px-7 py-2.5 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-sm font-semibold hover:shadow-lg transition-all duration-300 text-sm"
           >
             Book Now
@@ -155,7 +150,7 @@ export function Header() {
               Contact
             </Link>
             <Link
-              href="/contact"
+              href="/tours"
               className="block mt-4 px-4 py-2.5 bg-primary text-primary-foreground rounded-sm font-semibold text-center text-sm hover:shadow-md transition-all"
               onClick={() => setIsOpen(false)}
             >

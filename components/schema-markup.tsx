@@ -1,16 +1,31 @@
 export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "TravelAgency", "LocalBusiness"],
     name: "Sofia Taj Tours",
     url: "https://sofiatajtours.com",
     logo: "https://sofiatajtours.com/logo.png",
     description: "Premium Taj Mahal tours from Delhi, Golden Triangle packages, and customized India tours with expert guides and skip-the-line access",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Agra",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "27.1767",
+      longitude: "78.0081",
+    },
+    areaServed: ["Delhi", "Agra", "Jaipur", "Uttar Pradesh", "Rajasthan", "India"],
+    priceRange: "$$",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      telephone: "+91-XXXXXXXXXX",
-      email: "info@sofiatajtours.com",
+      telephone: "+91-9368862429",
+      email: "sofiatajtours@gmail.com",
+      availableLanguage: ["English", "Hindi"],
+      areaServed: "IN",
     },
     sameAs: [
       "https://www.facebook.com/sofiatajtours",
@@ -64,6 +79,7 @@ export function TouristTripSchema({
   startDate,
   endDate,
   price,
+  priceINR,
 }: {
   title: string
   description: string
@@ -72,6 +88,7 @@ export function TouristTripSchema({
   startDate: string
   endDate: string
   price: number
+  priceINR?: number
 }) {
   const schema = {
     "@context": "https://schema.org",
@@ -84,12 +101,22 @@ export function TouristTripSchema({
       "@type": "Place",
       name: location,
     },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      price: price.toString(),
-      availability: "https://schema.org/InStock",
-    },
+    offers: [
+      {
+        "@type": "Offer",
+        priceCurrency: "INR",
+        price: priceINR ? priceINR.toString() : (price * 91).toString(),
+        availability: "https://schema.org/InStock",
+        url: `https://sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+      },
+      {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: price.toString(),
+        availability: "https://schema.org/InStock",
+        url: `https://sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+      },
+    ],
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

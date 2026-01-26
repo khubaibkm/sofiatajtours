@@ -8,13 +8,19 @@ interface TourCardProps {
   location: string
   duration: string
   price: number
+  priceINR: number
   originalPrice?: number
+  originalPriceINR?: number
   reviews?: number
   features?: string[]
   image: string
 }
 
-export function TourCard({ slug, title, location, duration, price, originalPrice, reviews, features, image }: TourCardProps) {
+export function TourCard({ slug, title, location, duration, price, priceINR, originalPrice, originalPriceINR, reviews, features, image }: TourCardProps) {
+  const discountPercentage = originalPriceINR
+    ? Math.round(((originalPriceINR - priceINR) / originalPriceINR) * 100)
+    : 0
+
   return (
     <Link href={`/tours/${slug}`}>
       <div className="bg-card rounded-lg overflow-hidden hover-lift group h-full flex flex-col border border-border/50">
@@ -26,6 +32,7 @@ export function TourCard({ slug, title, location, duration, price, originalPrice
             className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
           {features && features.length > 0 && (
             <div className="absolute top-3 left-3 flex flex-col gap-2">
               {features.map((feature, index) => (
@@ -59,16 +66,35 @@ export function TourCard({ slug, title, location, duration, price, originalPrice
             )}
           </div>
 
-          <div className="flex items-center gap-2 mb-4">
-            <div className="flex items-center gap-1 text-primary font-bold text-xl">
-              <span className="text-sm">From</span>
-              <DollarSign size={18} />
-              <span>{price.toFixed(2)}</span>
+          <div className="flex flex-col gap-1 mb-4">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 text-primary font-bold text-xl">
+                <span className="text-sm">From</span>
+                <span>₹{priceINR.toLocaleString()}</span>
+              </div>
+              {originalPriceINR && (
+                <span className="text-muted-foreground text-sm line-through">
+                  ₹{originalPriceINR.toLocaleString()}
+                </span>
+              )}
             </div>
-            {originalPrice && (
-              <span className="text-muted-foreground text-sm line-through">
-                ${originalPrice.toFixed(2)}
-              </span>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                <DollarSign size={14} />
+                <span>{price.toFixed(2)} USD</span>
+              </div>
+              {originalPrice && (
+                <span className="text-muted-foreground text-xs line-through">
+                  ${originalPrice.toFixed(2)}
+                </span>
+              )}
+            </div>
+            {originalPriceINR && (
+              <div className="mt-1">
+                <span className="inline-block bg-red-50 text-red-600 text-xs font-semibold px-2 py-1 rounded">
+                  Save ₹{(originalPriceINR - priceINR).toLocaleString()}
+                </span>
+              </div>
             )}
           </div>
 

@@ -6,8 +6,8 @@ import { useState } from "react"
 export function WhatsAppWidget() {
   const [isHovered, setIsHovered] = useState(false)
 
-  const whatsappNumber = "919876543210" // Replace with actual number
-  const message = "Hello! I'm interested in booking a Taj Mahal tour with Sofia Taj Tours."
+  const whatsappNumber = "919368862429"
+  const message = "Hello! I'm interested in booking a tour with Sofia Taj Tours."
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
   return (

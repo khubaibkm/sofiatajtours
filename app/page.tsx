@@ -38,7 +38,11 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  const featuredTours = tours.slice(0, 3)
+    const featuredTours = [
+    tours.find(t => t.slug === "golden-triangle-tour-3-days"),
+    tours.find(t => t.slug === "taj-mahal-agra-private-car-day-tour-with-5-star-meal"),
+    tours.find(t => t.slug === "old-new-delhi-city-tour-8-hours"),
+  ].filter(Boolean)
 
   return (
     <>
@@ -78,7 +82,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {featuredTours.map((tour) => (
+              {featuredTours.map((tour) => tour && (
                 <TourCard
                   key={tour.slug}
                   slug={tour.slug}
@@ -86,7 +90,9 @@ export default function Home() {
                   location={tour.location}
                   duration={tour.duration}
                   price={tour.price}
+                  priceINR={tour.priceINR}
                   originalPrice={tour.originalPrice}
+                  originalPriceINR={tour.originalPriceINR}
                   reviews={tour.reviews}
                   features={tour.features}
                   image={tour.images[0]}
@@ -213,7 +219,9 @@ export default function Home() {
                       location={tour.location}
                       duration={tour.duration}
                       price={tour.price}
+                      priceINR={tour.priceINR}
                       originalPrice={tour.originalPrice}
+                      originalPriceINR={tour.originalPriceINR}
                       reviews={tour.reviews}
                       features={tour.features}
                       image={tour.images[0]}

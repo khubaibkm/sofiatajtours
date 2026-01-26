@@ -103,7 +103,9 @@ function ToursContent() {
                         location={tour.location}
                         duration={tour.duration}
                         price={tour.price}
+                        priceINR={tour.priceINR}
                         originalPrice={tour.originalPrice}
+                        originalPriceINR={tour.originalPriceINR}
                         reviews={tour.reviews}
                         features={tour.features}
                         image={tour.images[0]}
@@ -124,8 +126,8 @@ function ToursContent() {
                     </p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Show Taj Mahal tours */}
-                    {tajMahalTours.map((tour) => (
+                    {/* Show only Taj Mahal tours FROM Delhi */}
+                    {tajMahalTours.filter(tour => tour.location.includes("Delhi")).map((tour) => (
                       <TourCard
                         key={tour.slug}
                         slug={tour.slug}
@@ -133,7 +135,9 @@ function ToursContent() {
                         location={tour.location}
                         duration={tour.duration}
                         price={tour.price}
+                        priceINR={tour.priceINR}
                         originalPrice={tour.originalPrice}
+                        originalPriceINR={tour.originalPriceINR}
                         reviews={tour.reviews}
                         features={tour.features}
                         image={tour.images[0]}
@@ -155,7 +159,9 @@ function ToursContent() {
                       location={tour.location}
                       duration={tour.duration}
                       price={tour.price}
+                      priceINR={tour.priceINR}
                       originalPrice={tour.originalPrice}
+                      originalPriceINR={tour.originalPriceINR}
                       reviews={tour.reviews}
                       features={tour.features}
                       image={tour.images[0]}
@@ -184,7 +190,9 @@ function ToursContent() {
                     location={tour.location}
                     duration={tour.duration}
                     price={tour.price}
+                    priceINR={tour.priceINR}
                     originalPrice={tour.originalPrice}
+                    originalPriceINR={tour.originalPriceINR}
                     reviews={tour.reviews}
                     features={tour.features}
                     image={tour.images[0]}
@@ -204,7 +212,7 @@ function ToursContent() {
                   Explore the vibrant capital of India with our comprehensive Delhi city tours
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {delhiTours.map((tour) => (
                   <TourCard
                     key={tour.slug}
@@ -213,7 +221,9 @@ function ToursContent() {
                     location={tour.location}
                     duration={tour.duration}
                     price={tour.price}
+                    priceINR={tour.priceINR}
                     originalPrice={tour.originalPrice}
+                    originalPriceINR={tour.originalPriceINR}
                     reviews={tour.reviews}
                     features={tour.features}
                     image={tour.images[0]}
@@ -243,7 +253,9 @@ function ToursContent() {
                       location={tour.location}
                       duration={tour.duration}
                       price={tour.price}
+                      priceINR={tour.priceINR}
                       originalPrice={tour.originalPrice}
+                      originalPriceINR={tour.originalPriceINR}
                       reviews={tour.reviews}
                       features={tour.features}
                       image={tour.images[0]}
@@ -273,7 +285,9 @@ function ToursContent() {
                     location={tour.location}
                     duration={tour.duration}
                     price={tour.price}
+                    priceINR={tour.priceINR}
                     originalPrice={tour.originalPrice}
+                    originalPriceINR={tour.originalPriceINR}
                     reviews={tour.reviews}
                     features={tour.features}
                     image={tour.images[0]}

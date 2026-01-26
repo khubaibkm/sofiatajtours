@@ -5,9 +5,12 @@ export interface Tour {
   location: string
   duration: string
   price: number
+  priceINR: number
   originalPrice?: number
+  originalPriceINR?: number
   reviews: number
   images: string[]
+  videos?: string[]
   highlights: string[]
   category: 'taj-mahal' | 'delhi' | 'golden-triangle' | 'from-delhi'
   features: string[]
@@ -21,6 +24,44 @@ export interface Tour {
 export const tours: Tour[] = [
   // TAJ MAHAL TOURS
   {
+    slug: "taj-mahal-agra-private-car-day-tour-with-5-star-meal",
+    title: "Taj Mahal and Agra Private Car Day Tour from Agra with 5* Meal",
+    description:
+      "The Taj Mahal is the epitome of a 'bucket list,' yet seeing this famous site is difficult, particularly for time-pressed tourists. Take this hassle-free, private day excursion from Agra to get there and back in one day. You will get a government lunch buffet in addition to the personalised guide.",
+    location: "Agra",
+    duration: "1 Day",
+    price: 41,
+    priceINR: 3751,
+    originalPrice: 60,
+    originalPriceINR: 5500,
+    reviews: 18,
+    category: "taj-mahal",
+    features: ["Pickup Available", "5* Meal Included"],
+    images: [
+      "/images/taj (1).jpeg",
+      "/images/taj (43).jpg",
+      "/images/taj (45).jpg",
+      "/images/taj (1).jpeg",
+      "/images/taj (65).jpg",
+    ],
+    videos: [],
+    highlights: [
+      "Visit the magnificent Taj Mahal with a personalized guide",
+      "Enjoy a 5-star government lunch buffet",
+      "Private air-conditioned car with professional driver",
+      "Hassle-free day excursion perfect for time-pressed tourists",
+      "Expert guide sharing history and stories of the Taj Mahal",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Taj Mahal Experience with Luxury Dining",
+        description:
+          "Pickup from your hotel in Agra. Visit the iconic Taj Mahal with your personal guide who will share fascinating history and stories. Explore the stunning architecture and gardens. Enjoy a premium 5-star lunch buffet at a government-approved restaurant. Additional sightseeing at Agra Fort if time permits. Return to your hotel in Agra.",
+      },
+    ],
+  },
+  {
     slug: "taj-mahal-tour-by-car-from-delhi",
     title: "Taj Mahal Tour by Car From Delhi",
     description:
@@ -28,16 +69,20 @@ export const tours: Tour[] = [
     location: "Delhi to Agra",
     duration: "11 Hours",
     price: 50,
+    priceINR: 4545,
     originalPrice: 65,
+    originalPriceINR: 5909,
     reviews: 175,
     category: "taj-mahal",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (1).jpg",
-      "/images/taj (33).jpg",
-      "/images/taj (34).jpg",
-      "/images/taj (35).jpg",
+      "/images/taj (41).jpg",
+      "/images/taj (49).jpg",
+      "/images/taj (66).jpg",
+      "/images/taj (41).jpg",
+      "/images/taj (42).jpg",
     ],
+    videos: [],
     highlights: [
       "Visit the iconic Taj Mahal with skip-the-line access",
       "Explore Agra Fort, a UNESCO World Heritage Site",
@@ -55,46 +100,6 @@ export const tours: Tour[] = [
     ],
   },
   {
-    slug: "taj-mahal-agra-overnight-tour",
-    title: "From Delhi: Taj Mahal and Agra Overnight Tour - By Car",
-    description:
-      "Immerse yourself in the splendor of Agra with this 2-day overnight tour from Delhi. Experience the Taj Mahal at sunrise and sunset, explore Mughal monuments, and enjoy comfortable accommodation.",
-    location: "Delhi to Agra",
-    duration: "2 Days",
-    price: 60,
-    originalPrice: 85,
-    reviews: 81,
-    category: "taj-mahal",
-    features: ["Pickup Available", "Skip the ticket line"],
-    images: [
-      "/images/taj (36).jpg",
-      "/images/taj (37).jpg",
-      "/images/taj (38).jpg",
-      "/images/taj (39).jpg",
-    ],
-    highlights: [
-      "Witness Taj Mahal at both sunrise and sunset",
-      "Overnight stay in a comfortable Agra hotel",
-      "Visit Agra Fort and Mehtab Bagh",
-      "Explore local markets and artisan workshops",
-      "All meals included",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Delhi to Agra - Sunset Tour",
-        description:
-          "Morning pickup from Delhi. Drive to Agra and check into your hotel. Afternoon visit to Agra Fort. Evening sunset view of Taj Mahal from Mehtab Bagh. Dinner and overnight stay in Agra.",
-      },
-      {
-        day: 2,
-        title: "Sunrise Taj Mahal & Return to Delhi",
-        description:
-          "Early morning sunrise visit to Taj Mahal. Return to hotel for breakfast. Visit local marble workshops. Lunch at a local restaurant. Drive back to Delhi with evening drop-off at your hotel.",
-      },
-    ],
-  },
-  {
     slug: "sunrise-taj-mahal-tour-from-delhi",
     title: "Sunrise Taj Mahal Tour From Delhi",
     description:
@@ -102,16 +107,20 @@ export const tours: Tour[] = [
     location: "Delhi to Agra",
     duration: "11 Hours",
     price: 50,
+    priceINR: 4545,
     originalPrice: 65,
+    originalPriceINR: 5909,
     reviews: 130,
     category: "taj-mahal",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (40).jpg",
-      "/images/taj (41).jpg",
-      "/images/taj (42).jpg",
-      "/images/taj (43).jpg",
+      "/images/taj (36).jpg",
+      "/images/taj (60).jpg",
+      "/images/taj (71).jpg",
+      "/images/taj (36).jpg",
+      "/images/taj (2).jpeg",
     ],
+    videos: [],
     highlights: [
       "Experience Taj Mahal at magical sunrise",
       "Beat the crowds with early access",
@@ -138,15 +147,18 @@ export const tours: Tour[] = [
     location: "Delhi",
     duration: "8 Hours",
     price: 30,
+    priceINR: 2727,
     originalPrice: 45,
+    originalPriceINR: 4091,
     reviews: 182,
     category: "delhi",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (44).jpg",
-      "/images/taj (45).jpg",
-      "/images/taj (46).jpg",
-      "/images/taj (47).jpg",
+      "/images/taj (99).jpg",
+      "/images/taj (5).jpeg",
+      "/images/taj (9).jpeg",
+      "/images/taj (99).jpg",
+      "/images/taj (95).jpg",
     ],
     highlights: [
       "Visit Red Fort and Jama Masjid",
@@ -172,15 +184,18 @@ export const tours: Tour[] = [
     location: "Old Delhi",
     duration: "4 Hours",
     price: 20,
+    priceINR: 1818,
     originalPrice: 25,
+    originalPriceINR: 2273,
     reviews: 98,
     category: "delhi",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (48).jpg",
-      "/images/taj (49).jpg",
-      "/images/taj (50).jpg",
-      "/images/taj (51).jpg",
+      "/images/taj (97).jpg",
+      "/images/taj (95).jpg",
+      "/images/taj (5).jpeg",
+      "/images/taj (97).jpg",
+      "/images/taj (8).jpeg",
     ],
     highlights: [
       "10+ food tastings at iconic eateries",
@@ -206,15 +221,18 @@ export const tours: Tour[] = [
     location: "Delhi",
     duration: "4 Hours",
     price: 15,
+    priceINR: 1364,
     originalPrice: 20,
+    originalPriceINR: 1818,
     reviews: 72,
     category: "delhi",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (53).JPG",
-      "/images/taj (69).JPG",
-      "/images/taj (70).JPG",
-      "/images/taj (71).JPG",
+      "/images/taj (98).JPG",
+      "/images/taj (94).jpg",
+      "/images/taj (47).JPG",
+      "/images/taj (98).JPG",
+      "/images/taj (11).JPeG",
     ],
     highlights: [
       "See India Gate beautifully illuminated at night",
@@ -242,16 +260,21 @@ export const tours: Tour[] = [
     location: "Delhi, Agra, Jaipur",
     duration: "3 Days",
     price: 120,
+    priceINR: 10909,
     originalPrice: 171,
+    originalPriceINR: 15545,
     reviews: 200,
     category: "golden-triangle",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (56).jpg",
-      "/images/taj (57).jpg",
-      "/images/taj (58).jpg",
+      "/images/taj (91).jpg",
+      "/images/taj (63).JPG",
+      "/images/taj (48).jpg",
+      "/images/taj (18).jpeg",
       "/images/taj (59).jpg",
+      "/images/taj (3).jpeg",
     ],
+    videos: ["/videos/taj (6).mp4", "/videos/taj (7).mp4",],
     highlights: [
       "Visit Taj Mahal, Agra Fort, and Fatehpur Sikri",
       "Explore Amber Fort, City Palace, and Hawa Mahal",
@@ -281,58 +304,6 @@ export const tours: Tour[] = [
     ],
   },
   {
-    slug: "golden-triangle-tour-4-days",
-    title: "Golden Triangle Tour 4 Days - Delhi, Agra & Jaipur 3N/4D",
-    description:
-      "Discover the best of India's Golden Triangle at a relaxed pace. This 4-day tour allows more time to explore each city's unique attractions, culture, and cuisine.",
-    location: "Delhi, Agra, Jaipur",
-    duration: "4 Days",
-    price: 120,
-    originalPrice: 171,
-    reviews: 100,
-    category: "golden-triangle",
-    features: ["Pickup Available", "Skip the ticket line"],
-    images: [
-      "/images/taj (60).jpg",
-      "/images/taj (61).jpg",
-      "/images/taj (62).jpg",
-      "/images/taj (63).jpg",
-    ],
-    highlights: [
-      "More leisurely pace to explore each city",
-      "Sunrise Taj Mahal visit",
-      "Visit all major monuments and palaces",
-      "3 nights accommodation with breakfast",
-      "Cultural experiences and local cuisine",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Arrive Delhi - City Tour",
-        description:
-          "Arrive in Delhi. Full day sightseeing including Qutub Minar, Humayun's Tomb, India Gate, Lotus Temple. Evening at leisure. Overnight in Delhi.",
-      },
-      {
-        day: 2,
-        title: "Delhi to Agra",
-        description:
-          "Visit Red Fort and Jama Masjid in Delhi. Drive to Agra. Afternoon visit to Agra Fort and Mehtab Bagh for sunset Taj view. Overnight in Agra.",
-      },
-      {
-        day: 3,
-        title: "Agra to Jaipur via Fatehpur Sikri",
-        description:
-          "Sunrise visit to Taj Mahal. After breakfast, visit Fatehpur Sikri en route to Jaipur. Arrive Jaipur and check in. Evening free for shopping. Overnight in Jaipur.",
-      },
-      {
-        day: 4,
-        title: "Jaipur Sightseeing & Return Delhi",
-        description:
-          "Visit Amber Fort, City Palace, Jantar Mantar, Hawa Mahal. Lunch at local restaurant. Drive back to Delhi. Drop-off at airport/hotel.",
-      },
-    ],
-  },
-  {
     slug: "golden-triangle-tour-jaipur-udaipur-6-days",
     title: "Golden Triangle Tour Jaipur and Udaipur Package by Car - 5N6D",
     description:
@@ -340,16 +311,21 @@ export const tours: Tour[] = [
     location: "Delhi, Agra, Jaipur, Udaipur",
     duration: "6 Days",
     price: 210,
+    priceINR: 19091,
     originalPrice: 280,
+    originalPriceINR: 25455,
     reviews: 130,
     category: "golden-triangle",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (64).JPG",
-      "/images/taj (65).JPG",
-      "/images/taj (66).JPG",
-      "/images/taj (67).JPG",
+      "/images/taj (92).JPG",
+      "/images/taj (19).JPeG",
+      "/images/taj (8).JPeG",
+      "/images/taj (45).JPG",
+      "/images/taj (43).JPG",
+      "/images/taj (14).JPeG",
     ],
+    videos: ["/videos/taj (4).mp4", "/videos/taj (5).mp4"],
     highlights: [
       "Complete Golden Triangle with Udaipur",
       "Boat ride on Lake Pichola",

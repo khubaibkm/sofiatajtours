@@ -70,7 +70,7 @@ export function FlexibilitySection() {
             </p>
             <div className="text-center">
               <Link
-                href="/contact"
+                href="/tours"
                 className="inline-flex px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
               >
                 Book Your Tour
