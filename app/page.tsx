@@ -39,9 +39,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
     const featuredTours = [
-    tours.find(t => t.slug === "golden-triangle-tour-3-days"),
     tours.find(t => t.slug === "taj-mahal-agra-private-car-day-tour-with-5-star-meal"),
     tours.find(t => t.slug === "old-new-delhi-city-tour-8-hours"),
+    tours.find(t => t.slug === "golden-triangle-tour-3-days"),
   ].filter(Boolean)
 
   return (
