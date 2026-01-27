@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Clock, DollarSign } from "lucide-react"
+import { MapPin, Clock, DollarSign, Star } from "lucide-react"
 
 interface TourCardProps {
   slug: string
@@ -8,10 +8,19 @@ interface TourCardProps {
   location: string
   duration: string
   price: number
+  priceINR: number
+  originalPrice?: number
+  originalPriceINR?: number
+  reviews?: number
+  features?: string[]
   image: string
 }
 
-export function TourCard({ slug, title, location, duration, price, image }: TourCardProps) {
+export function TourCard({ slug, title, location, duration, price, priceINR, originalPrice, originalPriceINR, reviews, features, image }: TourCardProps) {
+  const discountPercentage = originalPriceINR
+    ? Math.round(((originalPriceINR - priceINR) / originalPriceINR) * 100)
+    : 0
+
   return (
     <Link href={`/tours/${slug}`}>
       <div className="bg-card rounded-lg overflow-hidden hover-lift group h-full flex flex-col border border-border/50">
@@ -20,29 +29,73 @@ export function TourCard({ slug, title, location, duration, price, image }: Tour
             src={image || "/placeholder.svg"}
             alt={title}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {features && features.length > 0 && (
+            <div className="absolute top-3 left-3 flex flex-col gap-2">
+              {features.map((feature, index) => (
+                <span key={index} className="bg-secondary/90 text-secondary-foreground text-xs px-2 py-1 rounded-sm font-medium">
+                  {feature}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
         <div className="flex-1 p-5 flex flex-col">
           <h3 className="font-semibold text-lg text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
 
-          <div className="flex items-center gap-1 text-muted-foreground mb-3">
+          <div className="flex items-center gap-1 text-muted-foreground mb-2">
             <MapPin size={16} className="text-secondary" />
             <span className="text-sm">{location}</span>
           </div>
 
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
             <div className="flex items-center gap-1">
               <Clock size={16} className="text-secondary" />
               <span>{duration}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <DollarSign size={16} className="text-secondary" />
-              <span>From ${price}</span>
+            {reviews && (
+              <div className="flex items-center gap-1">
+                <Star size={16} className="text-secondary fill-secondary" />
+                <span>{reviews} Reviews</span>
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1 mb-4">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 text-primary font-bold text-xl">
+                <span className="text-sm">From</span>
+                <span>₹{priceINR.toLocaleString()}</span>
+              </div>
+              {originalPriceINR && (
+                <span className="text-muted-foreground text-sm line-through">
+                  ₹{originalPriceINR.toLocaleString()}
+                </span>
+              )}
             </div>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                <DollarSign size={14} />
+                <span>{price.toFixed(2)} USD</span>
+              </div>
+              {originalPrice && (
+                <span className="text-muted-foreground text-xs line-through">
+                  ${originalPrice.toFixed(2)}
+                </span>
+              )}
+            </div>
+            {originalPriceINR && (
+              <div className="mt-1">
+                <span className="inline-block bg-red-50 text-red-600 text-xs font-semibold px-2 py-1 rounded">
+                  Save ₹{(originalPriceINR - priceINR).toLocaleString()}
+                </span>
+              </div>
+            )}
           </div>
 
           <button className="w-full mt-auto px-4 py-2.5 bg-primary text-primary-foreground rounded-sm font-medium text-sm hover:bg-primary/90 transition-all duration-300">

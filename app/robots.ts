@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin", "/internal", "/api"],
     },
-    sitemap: "https://wanderlust.com/sitemap.xml",
+    sitemap: "https://sofiatajtours.com/sitemap.xml",
   }
 }

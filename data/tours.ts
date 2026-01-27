@@ -5,8 +5,15 @@ export interface Tour {
   location: string
   duration: string
   price: number
+  priceINR: number
+  originalPrice?: number
+  originalPriceINR?: number
+  reviews: number
   images: string[]
+  videos?: string[]
   highlights: string[]
+  category: 'taj-mahal' | 'delhi' | 'golden-triangle' | 'from-delhi'
+  features: string[]
   itinerary: Array<{
     day: number
     title: string
@@ -15,207 +22,353 @@ export interface Tour {
 }
 
 export const tours: Tour[] = [
+  // TAJ MAHAL TOURS
   {
-    slug: "taj-mahal-sunrise",
-    title: "Taj Mahal Sunrise Experience",
+    slug: "taj-mahal-agra-private-car-day-tour-with-5-star-meal",
+    title: "Taj Mahal and Agra Private Car Day Tour from Agra with 5* Meal",
     description:
-      "Witness the ethereal beauty of the Taj Mahal bathed in golden sunrise light. This intimate early morning tour captures the monument's most magical moment with fewer crowds.",
-    location: "Agra, India",
-    duration: "3 days",
-    price: 599,
+      "The Taj Mahal is the epitome of a 'bucket list,' yet seeing this famous site is difficult, particularly for time-pressed tourists. Take this hassle-free, private day excursion from Agra to get there and back in one day. You will get a government lunch buffet in addition to the personalised guide.",
+    location: "Agra",
+    duration: "1 Day",
+    price: 41,
+    priceINR: 3751,
+    originalPrice: 60,
+    originalPriceINR: 5500,
+    reviews: 18,
+    category: "taj-mahal",
+    features: ["Pickup Available", "5* Meal Included"],
     images: [
-      "/placeholder.svg?key=j992c",
-      "/placeholder.svg?key=2a4nh",
-      "/placeholder.svg?key=x9g96",
-      "/placeholder.svg?key=bwhjh",
+      "/images/taj (1).jpeg",
+      "/images/taj (43).jpg",
+      "/images/taj (45).jpg",
+      "/images/taj (1).jpeg",
+      "/images/taj (69).png",
     ],
+    videos: [],
     highlights: [
-      "Watch the Taj Mahal transform at sunrise",
-      "Explore Agra Fort with expert guide",
-      "Visit Mehtab Bagh for sunset views",
-      "Experience authentic Agra cuisine",
-      "Private access to premium viewing areas",
+      "Visit the magnificent Taj Mahal with a personalized guide",
+      "Enjoy a 5-star government lunch buffet",
+      "Private air-conditioned car with professional driver",
+      "Hassle-free day excursion perfect for time-pressed tourists",
+      "Expert guide sharing history and stories of the Taj Mahal",
     ],
     itinerary: [
       {
         day: 1,
-        title: "Arrival in Agra",
+        title: "Taj Mahal Experience with Luxury Dining",
         description:
-          "Arrive at Indira Gandhi International Airport in Delhi. Transfer to Agra (4-hour drive). Check-in at luxury heritage hotel. Evening orientation and preparation for sunrise viewing.",
-      },
-      {
-        day: 2,
-        title: "Taj Mahal Sunrise & Agra Fort",
-        description:
-          "Pre-dawn departure to Taj Mahal. Witness the ethereal sunrise over the monument. Guided tour of the marble masterpiece. Afternoon exploration of Agra Fort with rich Mughal history. Evening at Mehtab Bagh for sunset reflections.",
-      },
-      {
-        day: 3,
-        title: "Cultural Immersion & Departure",
-        description:
-          "Morning visit to local artisan marble workshops. Experience traditional Mughal cuisine at breakfast. Leisure time for last-minute shopping. Afternoon transfer to Delhi for departure.",
+          "Pickup from your hotel in Agra. Visit the iconic Taj Mahal with your personal guide who will share fascinating history and stories. Explore the stunning architecture and gardens. Enjoy a premium 5-star lunch buffet at a government-approved restaurant. Additional sightseeing at Agra Fort if time permits. Return to your hotel in Agra.",
       },
     ],
   },
   {
-    slug: "taj-mahal-luxury",
-    title: "Taj Mahal Luxury Collection",
+    slug: "taj-mahal-tour-by-car-from-delhi",
+    title: "Taj Mahal Tour by Car From Delhi",
     description:
-      "Indulge in an opulent journey through Mughal India. Stay in palatial heritage hotels, enjoy private guides, and experience the Taj Mahal in utmost comfort and elegance.",
-    location: "Agra & Lucknow, India",
-    duration: "5 days",
-    price: 1299,
+      "Experience the eternal beauty of the Taj Mahal on this comprehensive day trip from Delhi. Travel in comfort by private car and witness one of the Seven Wonders of the World with an expert guide.",
+    location: "Delhi to Agra",
+    duration: "11 Hours",
+    price: 50,
+    priceINR: 4545,
+    originalPrice: 65,
+    originalPriceINR: 5909,
+    reviews: 175,
+    category: "taj-mahal",
+    features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/placeholder.svg?key=olc8b",
-      "/placeholder.svg?key=fn7be",
-      "/placeholder.svg?key=gzfre",
-      "/placeholder.svg?key=inxk7",
+      "/images/taj (41).jpg",
+      "/images/taj (49).jpg",
+      "/images/taj (66).png",
+      "/images/taj (41).jpg",
+      "/images/taj (42).jpg",
     ],
+    videos: [],
     highlights: [
-      "5-star heritage accommodation",
-      "Private Taj Mahal tours with historians",
-      "Exclusive artisan experiences",
-      "Gourmet Mughal cuisine dining",
-      "Personalized travel concierge",
+      "Visit the iconic Taj Mahal with skip-the-line access",
+      "Explore Agra Fort, a UNESCO World Heritage Site",
+      "Private air-conditioned car with professional driver",
+      "Expert guide sharing history and stories",
+      "Lunch at a local restaurant",
     ],
     itinerary: [
       {
         day: 1,
-        title: "Delhi Arrival & Luxury Welcome",
+        title: "Delhi to Agra Journey",
         description:
-          "Arrive and transfer to luxury hotel. Welcome dinner with Mughal-inspired cuisine. Evening briefing on the historical significance of Taj Mahal.",
+          "Early morning pickup from your hotel in Delhi. Drive to Agra via the Yamuna Expressway (approximately 3 hours). Visit the magnificent Taj Mahal and explore its stunning architecture. Tour Agra Fort and learn about Mughal history. Enjoy lunch at a local restaurant. Return to Delhi with drop-off at your hotel.",
+      },
+    ],
+  },
+  {
+    slug: "sunrise-taj-mahal-tour-from-delhi",
+    title: "Sunrise Taj Mahal Tour From Delhi",
+    description:
+      "Witness the breathtaking beauty of the Taj Mahal at sunrise, when the monument glows in golden light. This early morning tour offers a magical experience with fewer crowds and stunning photo opportunities.",
+    location: "Delhi to Agra",
+    duration: "11 Hours",
+    price: 50,
+    priceINR: 4545,
+    originalPrice: 65,
+    originalPriceINR: 5909,
+    reviews: 130,
+    category: "taj-mahal",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (36).jpg",
+      "/images/taj (60).jpg",
+      "/images/taj (53).jpg",
+      "/images/taj (59).jpg",
+      "/images/taj (2).jpeg",
+    ],
+    videos: [],
+    highlights: [
+      "Experience Taj Mahal at magical sunrise",
+      "Beat the crowds with early access",
+      "Professional photography opportunities",
+      "Visit Agra Fort after sunrise",
+      "Breakfast and lunch included",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Sunrise Taj Mahal Experience",
+        description:
+          "Pre-dawn pickup from Delhi (2:30 AM). Drive to Agra in time for sunrise. Enter Taj Mahal as gates open and witness the monument bathed in golden morning light. Guided tour of the Taj Mahal. Breakfast at a local restaurant. Visit Agra Fort. Lunch before returning to Delhi. Evening drop-off at your hotel.",
+      },
+    ],
+  },
+
+  // DELHI TOURS
+  {
+    slug: "old-new-delhi-city-tour-8-hours",
+    title: "Best of Old & New Delhi City Tour in 8 Hours - By Car",
+    description:
+      "Discover the contrasts of India's capital on this comprehensive 8-hour tour. Explore ancient monuments, bustling bazaars, modern landmarks, and experience the vibrant culture of both Old and New Delhi.",
+    location: "Delhi",
+    duration: "8 Hours",
+    price: 30,
+    priceINR: 2727,
+    originalPrice: 45,
+    originalPriceINR: 4091,
+    reviews: 182,
+    category: "delhi",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (99).jpg",
+      "/images/taj (5).jpeg",
+      "/images/taj (9).jpeg",
+      "/images/taj (99).jpg",
+      "/images/taj (95).jpg",
+    ],
+    highlights: [
+      "Visit Red Fort and Jama Masjid",
+      "Rickshaw ride through Chandni Chowk",
+      "See India Gate and Parliament House",
+      "Explore Qutub Minar and Humayun's Tomb",
+      "Experience local street food",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Old & New Delhi Highlights",
+        description:
+          "Pickup from your hotel. Start with Old Delhi - visit Red Fort, Jama Masjid, and take a rickshaw ride through Chandni Chowk. Visit Raj Ghat (Gandhi's memorial). Explore New Delhi - drive past India Gate, Parliament House, and President's House. Visit Qutub Minar and Humayun's Tomb. Return to hotel.",
+      },
+    ],
+  },
+  {
+    slug: "old-delhi-food-tour-4-hours",
+    title: "4 Hours: Tasting Old Delhi Food Tour",
+    description:
+      "Embark on a culinary adventure through the narrow lanes of Old Delhi. Taste authentic street food, traditional dishes, and sweet delicacies while learning about Delhi's rich food culture.",
+    location: "Old Delhi",
+    duration: "4 Hours",
+    price: 20,
+    priceINR: 1818,
+    originalPrice: 25,
+    originalPriceINR: 2273,
+    reviews: 98,
+    category: "delhi",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (97).jpg",
+      "/images/taj (95).jpg",
+      "/images/taj (5).jpeg",
+      "/images/taj (97).jpg",
+      "/images/taj (8).jpeg",
+    ],
+    highlights: [
+      "10+ food tastings at iconic eateries",
+      "Try famous paranthas, chaat, and kebabs",
+      "Visit historic Chandni Chowk market",
+      "Learn about Old Delhi's culinary heritage",
+      "Taste traditional sweets and desserts",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Old Delhi Food Trail",
+        description:
+          "Meet at Chandni Chowk metro station. Walk through the historic lanes trying various street foods - paranthas at Paranthe Wali Gali, kebabs at Karim's, jalebis at Old Famous Jalebi Wala, and more. Visit spice markets and learn about Indian spices. End with traditional chai and samosas. Tour concludes at starting point.",
+      },
+    ],
+  },
+  {
+    slug: "delhi-night-tour-4-hours",
+    title: "4 Hours Delhi Night Tour: With Transfers",
+    description:
+      "Experience the magic of Delhi after dark on this 4-hour evening tour. Discover illuminated monuments, vibrant markets, and the city's nightlife while enjoying comfortable transfers throughout the journey.",
+    location: "Delhi",
+    duration: "4 Hours",
+    price: 15,
+    priceINR: 1364,
+    originalPrice: 20,
+    originalPriceINR: 1818,
+    reviews: 72,
+    category: "delhi",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (98).jpg",
+      "/images/taj (94).jpg",
+      "/images/taj (47).jpg",
+      "/images/taj (98).jpg",
+      "/images/taj (11).jpeg",
+    ],
+    highlights: [
+      "See India Gate beautifully illuminated at night",
+      "Drive past Parliament House and Rashtrapati Bhavan",
+      "Visit Akshardham Temple light and water show",
+      "Explore Connaught Place nightlife",
+      "Comfortable air-conditioned transfers included",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Delhi Night Experience",
+        description:
+          "Evening pickup from your hotel. Begin with illuminated India Gate and war memorial. Drive past the majestic Parliament House and Rashtrapati Bhavan lit up at night. Visit Akshardham Temple for the spectacular light and water show (if time permits). Explore Connaught Place and its vibrant evening atmosphere. Enjoy optional dinner at a local restaurant. Return transfer to your hotel.",
+      },
+    ],
+  },
+
+  // GOLDEN TRIANGLE TOURS
+  {
+    slug: "golden-triangle-tour-3-days",
+    title: "Golden Triangle Tour 3 Days - Delhi, Agra & Jaipur 2N/3D",
+    description:
+      "Experience India's most iconic destinations on this 3-day Golden Triangle tour. Visit Delhi's monuments, Agra's Taj Mahal, and Jaipur's palaces in one incredible journey through North India's heritage.",
+    location: "Delhi, Agra, Jaipur",
+    duration: "3 Days",
+    price: 120,
+    priceINR: 10909,
+    originalPrice: 171,
+    originalPriceINR: 15545,
+    reviews: 200,
+    category: "golden-triangle",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (111).jpg",
+      "/images/taj (63).jpg",
+      "/images/taj (48).jpg",
+      "/images/taj (18).jpeg",
+      "/images/taj (59).jpg",
+      "/images/taj (3).jpeg",
+    ],
+    videos: ["/videos/taj (6).mp4", "/videos/taj (7).mp4",],
+    highlights: [
+      "Visit Taj Mahal, Agra Fort, and Fatehpur Sikri",
+      "Explore Amber Fort, City Palace, and Hawa Mahal",
+      "See Delhi's top attractions",
+      "2 nights accommodation included",
+      "All transfers and transport",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Delhi Sightseeing",
+        description:
+          "Pickup from Delhi airport/hotel. Full day Delhi sightseeing - Red Fort, Jama Masjid, India Gate, Qutub Minar, Humayun's Tomb. Overnight in Delhi.",
       },
       {
         day: 2,
-        title: "Taj Mahal Sunrise & Day Tour",
+        title: "Delhi to Agra via Taj Mahal",
         description:
-          "Private sunrise viewing at Taj Mahal with expert historian guide. Detailed exploration of marble inlays and architecture. Afternoon at Agra Fort. Private spa treatment in evening.",
+          "Drive to Agra. Visit Taj Mahal and Agra Fort. Explore Fatehpur Sikri en route to Jaipur. Check into Jaipur hotel. Overnight in Jaipur.",
       },
       {
         day: 3,
-        title: "Mehtab Bagh & Artisan Workshop",
+        title: "Jaipur Sightseeing & Return to Delhi",
         description:
-          "Visit Mehtab Bagh with champagne breakfast. Exclusive tour of marble inlay workshops. Learn from artisans creating Taj Mahal replicas. Evening classical music performance.",
+          "Visit Amber Fort with elephant ride. Explore City Palace, Jantar Mantar, and Hawa Mahal. Drive back to Delhi. Drop-off at airport/hotel.",
+      },
+    ],
+  },
+  {
+    slug: "golden-triangle-tour-jaipur-udaipur-6-days",
+    title: "Golden Triangle Tour Jaipur and Udaipur Package by Car - 5N6D",
+    description:
+      "Extend your Golden Triangle experience with the romantic city of Udaipur. This comprehensive 6-day tour covers Delhi, Agra, Jaipur, and the lake city of Udaipur, offering a perfect blend of history, culture, and natural beauty.",
+    location: "Delhi, Agra, Jaipur, Udaipur",
+    duration: "6 Days",
+    price: 210,
+    priceINR: 19091,
+    originalPrice: 280,
+    originalPriceINR: 25455,
+    reviews: 130,
+    category: "golden-triangle",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (92).jpg",
+      "/images/taj (19).jpeg",
+      "/images/taj (8).jpeg",
+      "/images/taj (45).jpg",
+      "/images/taj (43).jpg",
+      "/images/taj (14).jpeg",
+    ],
+    videos: ["/videos/taj (4).mp4", "/videos/taj (5).mp4"],
+    highlights: [
+      "Complete Golden Triangle with Udaipur",
+      "Boat ride on Lake Pichola",
+      "Visit City Palace Udaipur and Jaipur",
+      "5 nights accommodation with breakfast",
+      "Experience Rajasthani culture and cuisine",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Delhi",
+        description:
+          "Arrive Delhi. Full day Delhi sightseeing - Qutub Minar, Humayun's Tomb, India Gate, Lotus Temple, Akshardham Temple. Overnight in Delhi.",
+      },
+      {
+        day: 2,
+        title: "Delhi to Agra",
+        description:
+          "Visit Red Fort and Jama Masjid. Drive to Agra. Visit Taj Mahal and Agra Fort. Evening at leisure. Overnight in Agra.",
+      },
+      {
+        day: 3,
+        title: "Agra to Jaipur",
+        description:
+          "Visit Fatehpur Sikri en route to Jaipur. Arrive Jaipur. Visit Birla Temple. Evening free for shopping at local bazaars. Overnight in Jaipur.",
       },
       {
         day: 4,
-        title: "Lucknow Mughal Heritage",
+        title: "Jaipur Sightseeing",
         description:
-          "Travel to Lucknow. Explore Bara Imambara and Chota Imambara. Visit royal palaces and gardens. Dine at iconic restaurant with traditional Lucknowi biryani.",
+          "Full day Jaipur tour - Amber Fort with elephant ride, City Palace, Jantar Mantar, Hawa Mahal, Jal Mahal. Cultural dinner with Rajasthani folk dance. Overnight in Jaipur.",
       },
       {
         day: 5,
-        title: "Departure",
+        title: "Jaipur to Udaipur",
         description:
-          "Final morning at leisure. Shopping for heritage crafts. Transfer to airport for departure with unforgettable memories.",
-      },
-    ],
-  },
-  {
-    slug: "taj-mahal-photography",
-    title: "Taj Mahal Photography Tour",
-    description:
-      "Capture the timeless beauty of the Taj Mahal through your lens. Perfect for photography enthusiasts, offering best angles, lighting conditions, and professional guidance.",
-    location: "Agra, India",
-    duration: "4 days",
-    price: 899,
-    images: [
-      "/taj-mahal-architectural-detail.jpg",
-      "/taj-mahal-symmetry-dome.jpg",
-      "/agra-street-photography.jpg",
-      "/taj-mahal-night-photography.jpg",
-    ],
-    highlights: [
-      "Multiple sunrise and sunset sessions",
-      "Professional photography guidance",
-      "Best angle identification and scouting",
-      "Post-processing workshop",
-      "Night photography of illuminated monument",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Arrival & Camera Preparation",
-        description:
-          "Arrive in Agra. Settle into photography-friendly accommodation. Evening orientation and scouting session for sunrise locations.",
-      },
-      {
-        day: 2,
-        title: "Sunrise & Daytime Photography",
-        description:
-          "Pre-dawn departure for sunrise photography. Multiple sessions capturing different light conditions. Professional feedback and composition guidance. Afternoon exploring street photography in Agra.",
-      },
-      {
-        day: 3,
-        title: "Advanced Techniques & Night Photography",
-        description:
-          "Morning photography at Agra Fort. Afternoon workshop on post-processing. Evening preparation for night photography. Shoot illuminated Taj Mahal under stars.",
-      },
-      {
-        day: 4,
-        title: "Portfolio Review & Departure",
-        description:
-          "Morning at Mehtab Bagh for reflection photography. Portfolio review session with professional photographer. Sharing session of best shots. Depart for home with stunning Taj Mahal collection.",
-      },
-    ],
-  },
-  {
-    slug: "taj-mahal-spiritual",
-    title: "Taj Mahal Spiritual Journey",
-    description:
-      "Connect with the spiritual essence of Taj Mahal. Experience meditation sessions, visit sacred sites, and explore the monument's deeper meaning as a symbol of eternal love.",
-    location: "Agra, India",
-    duration: "6 days",
-    price: 1099,
-    images: [
-      "/taj-mahal-meditation-garden.jpg",
-      "/agra-temple-spiritual.jpg",
-      "/mughal-garden-peaceful.jpg",
-      "/taj-mahal-moonlight-spiritual.jpg",
-    ],
-    highlights: [
-      "Guided meditation sessions",
-      "Visits to sacred temples and mosques",
-      "Spiritual historian consultations",
-      "Yoga sessions in gardens",
-      "Mystical evening gatherings",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Spiritual Centering",
-        description:
-          "Arrive in Agra. Introduction to the spiritual significance of Taj Mahal. Evening meditation session overlooking the monument.",
-      },
-      {
-        day: 2,
-        title: "Taj Mahal Meditation",
-        description:
-          "Sunrise meditation inside the Taj Mahal grounds. Guided tour exploring love story and spiritual symbolism. Afternoon yoga in gardens. Evening chanting session.",
-      },
-      {
-        day: 3,
-        title: "Sacred Sites Exploration",
-        description:
-          "Visit Agra's temples and mosques. Meet spiritual leaders and scholars. Participate in prayer rituals. Learn about Mughal-Hindu spiritual synthesis.",
-      },
-      {
-        day: 4,
-        title: "Deep Spiritual Immersion",
-        description:
-          "Full day at Mehtab Bagh with meditation and reflection. Consult with spiritual historians. Document personal spiritual insights.",
-      },
-      {
-        day: 5,
-        title: "Wellness & Rejuvenation",
-        description:
-          "Traditional Ayurvedic spa treatments. Healing sessions. Final meditation session under moonlight at Taj Mahal.",
+          "Drive to Udaipur (approximately 6 hours). En route visit Pushkar or Chittorgarh Fort. Arrive Udaipur. Evening boat ride on Lake Pichola. Overnight in Udaipur.",
       },
       {
         day: 6,
-        title: "Integration & Departure",
+        title: "Udaipur Sightseeing & Departure",
         description:
-          "Closing circle and reflection. Journal sharing. Depart with spiritual insights and renewed perspective on love and beauty.",
+          "Visit City Palace, Jagdish Temple, Saheliyon ki Bari. Optional visit to Monsoon Palace. Transfer to airport for departure or continue journey.",
       },
     ],
   },
