@@ -267,7 +267,7 @@ export const tours: Tour[] = [
     category: "golden-triangle",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (91).jpg",
+      "/images/taj (111).jpg",
       "/images/taj (63).jpg",
       "/images/taj (48).jpg",
       "/images/taj (18).jpeg",
