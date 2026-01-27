@@ -42,7 +42,7 @@ export const tours: Tour[] = [
       "/images/taj (43).jpg",
       "/images/taj (45).jpg",
       "/images/taj (1).jpeg",
-      "/images/taj (65).jpg",
+      "/images/taj (69).png",
     ],
     videos: [],
     highlights: [
@@ -78,7 +78,7 @@ export const tours: Tour[] = [
     images: [
       "/images/taj (41).jpg",
       "/images/taj (49).jpg",
-      "/images/taj (66).jpg",
+      "/images/taj (66).png",
       "/images/taj (41).jpg",
       "/images/taj (42).jpg",
     ],
@@ -116,8 +116,8 @@ export const tours: Tour[] = [
     images: [
       "/images/taj (36).jpg",
       "/images/taj (60).jpg",
-      "/images/taj (71).jpg",
-      "/images/taj (36).jpg",
+      "/images/taj (53).jpg",
+      "/images/taj (59).jpg",
       "/images/taj (2).jpeg",
     ],
     videos: [],
