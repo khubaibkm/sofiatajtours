@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Clock, DollarSign, Star } from "lucide-react"
+import { MapPin, Clock, DollarSign } from "lucide-react"
 
 interface TourCardProps {
   slug: string
@@ -11,12 +11,11 @@ interface TourCardProps {
   priceINR: number
   originalPrice?: number
   originalPriceINR?: number
-  reviews?: number
   features?: string[]
   image: string
 }
 
-export function TourCard({ slug, title, location, duration, price, priceINR, originalPrice, originalPriceINR, reviews, features, image }: TourCardProps) {
+export function TourCard({ slug, title, location, duration, price, priceINR, originalPrice, originalPriceINR, features, image }: TourCardProps) {
   const discountPercentage = originalPriceINR
     ? Math.round(((originalPriceINR - priceINR) / originalPriceINR) * 100)
     : 0
@@ -58,12 +57,6 @@ export function TourCard({ slug, title, location, duration, price, priceINR, ori
               <Clock size={16} className="text-secondary" />
               <span>{duration}</span>
             </div>
-            {reviews && (
-              <div className="flex items-center gap-1">
-                <Star size={16} className="text-secondary fill-secondary" />
-                <span>{reviews} Reviews</span>
-              </div>
-            )}
           </div>
 
           <div className="flex flex-col gap-1 mb-4">

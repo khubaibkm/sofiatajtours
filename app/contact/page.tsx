@@ -197,15 +197,14 @@ export default function ContactPage() {
                       className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                       <option value="">Select a tour</option>
+                      <option value="Taj Mahal and Agra Private Car Day Tour from Agra with 5* Meal">Taj Mahal and Agra Private Car Day Tour from Agra with 5* Meal</option>
                       <option value="Taj Mahal Tour by Car From Delhi">Taj Mahal Tour by Car From Delhi</option>
-                      <option value="Taj Mahal and Agra Overnight Tour">Taj Mahal and Agra Overnight Tour</option>
                       <option value="Sunrise Taj Mahal Tour From Delhi">Sunrise Taj Mahal Tour From Delhi</option>
-                      <option value="Best of Old & New Delhi City Tour">Best of Old & New Delhi City Tour</option>
-                      <option value="Old Delhi Food Tour">Old Delhi Food Tour</option>
-                      <option value="Delhi Night Tour">Delhi Night Tour</option>
-                      <option value="Golden Triangle Tour 3 Days">Golden Triangle Tour 3 Days</option>
-                      <option value="Golden Triangle Tour 4 Days">Golden Triangle Tour 4 Days</option>
-                      <option value="Golden Triangle with Udaipur 6 Days">Golden Triangle with Udaipur 6 Days</option>
+                      <option value='Skip the line "Taj Mahal" & "Agra Fort" Tickets with live Tour Guide'>Skip the line "Taj Mahal" & "Agra Fort" Tickets with live Tour Guide</option>
+                      <option value="Half Day Agra Fort & Baby Taj Tour from Agra">Half Day Agra Fort & Baby Taj Tour from Agra</option>
+                      <option value="Best of Old & New Delhi City Tour in 8 Hours - By Car">Best of Old & New Delhi City Tour in 8 Hours - By Car</option>
+                      <option value="Golden Triangle Tour 3 Days - Delhi, Agra & Jaipur 2N/3D">Golden Triangle Tour 3 Days - Delhi, Agra & Jaipur 2N/3D</option>
+                      <option value="Golden Triangle Tour Jaipur and Udaipur Package by Car - 5N6D">Golden Triangle Tour Jaipur and Udaipur Package by Car - 5N6D</option>
                     </select>
                   </div>
 

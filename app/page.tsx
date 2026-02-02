@@ -93,7 +93,6 @@ export default function Home() {
                   priceINR={tour.priceINR}
                   originalPrice={tour.originalPrice}
                   originalPriceINR={tour.originalPriceINR}
-                  reviews={tour.reviews}
                   features={tour.features}
                   image={tour.images[0]}
                 />
@@ -222,7 +221,6 @@ export default function Home() {
                       priceINR={tour.priceINR}
                       originalPrice={tour.originalPrice}
                       originalPriceINR={tour.originalPriceINR}
-                      reviews={tour.reviews}
                       features={tour.features}
                       image={tour.images[0]}
                     />
