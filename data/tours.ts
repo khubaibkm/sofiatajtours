@@ -147,11 +147,11 @@ export const tours: Tour[] = [
     category: "taj-mahal",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
-      "/images/taj (67).jpg",
+      "/images/taj (65).png",
       "/images/taj (43).jpg",
       "/images/taj (63).jpg",
       "/images/taj (98).jpg",
-      "/images/taj (65).jpg",
+      "/images/taj (69).png",
     ],
     highlights: [
       "Stand before shimmering white marble and intricate inlay work",
