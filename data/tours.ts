@@ -8,7 +8,6 @@ export interface Tour {
   priceINR: number
   originalPrice?: number
   originalPriceINR?: number
-  reviews: number
   images: string[]
   videos?: string[]
   highlights: string[]
@@ -34,7 +33,6 @@ export const tours: Tour[] = [
     priceINR: 3751,
     originalPrice: 60,
     originalPriceINR: 5500,
-    reviews: 18,
     category: "taj-mahal",
     features: ["Pickup Available", "5* Meal Included"],
     images: [
@@ -72,7 +70,6 @@ export const tours: Tour[] = [
     priceINR: 4545,
     originalPrice: 65,
     originalPriceINR: 5909,
-    reviews: 175,
     category: "taj-mahal",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
@@ -110,7 +107,6 @@ export const tours: Tour[] = [
     priceINR: 4545,
     originalPrice: 65,
     originalPriceINR: 5909,
-    reviews: 130,
     category: "taj-mahal",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
@@ -137,6 +133,80 @@ export const tours: Tour[] = [
       },
     ],
   },
+  {
+    slug: "skip-the-line-taj-mahal-agra-fort-tickets-with-guide",
+    title: "Skip the line \"Taj Mahal\" & \"Agra Fort\" Tickets with live Tour Guide",
+    description:
+      "Experience the Taj Mahal and Agra Fort with skip-the-line access and a professional tour guide. Stand before the shimmering white marble, explore grand courtyards, and discover the architectural wonders of these UNESCO World Heritage Sites.",
+    location: "Agra",
+    duration: "3-4 Hours",
+    price: 4.64,
+    priceINR: 423,
+    originalPrice: 5.16,
+    originalPriceINR: 470,
+    category: "taj-mahal",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (67).jpg",
+      "/images/taj (43).jpg",
+      "/images/taj (63).jpg",
+      "/images/taj (98).jpg",
+      "/images/taj (65).jpg",
+    ],
+    highlights: [
+      "Stand before shimmering white marble and intricate inlay work",
+      "Explore grand courtyards, audience halls, and lush Mughal gardens",
+      "Discover clever architectural tricks woven into both monuments",
+      "Take in peaceful views beside the Taj Mahal's iconic setting",
+      "Skip-the-line entry with approved tour guide",
+      "Water bottle and shoe cover included with every ticket",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Taj Mahal & Agra Fort Tour",
+        description:
+          "Get picked up from anywhere in Agra (if transport option is opted) and proceed directly to the magnificent Taj Mahal. Meet your licensed tour guide who will assist you with prearranged tickets, ensuring hassle-free, skip-the-line entry. Explore the UNESCO World Heritage Site and one of the Seven Wonders of the World, built by Mughal Emperor Shah Jahan in memory of his beloved wife, Mumtaz Mahal. After exploring the Taj Mahal (2 hours), continue to the historic Agra Fort, a UNESCO World Heritage Site and masterpiece of Mughal architecture. Discover exquisite palaces, audience halls, and gardens within the grand red sandstone walls. Finally, be dropped off at your specified location in Agra.",
+      },
+    ],
+  },
+  {
+    slug: "half-day-agra-fort-baby-taj-tour",
+    title: "Half Day Agra Fort & Baby Taj Tour from Agra",
+    description:
+      "Discover the architectural heritage of Agra on this half-day tour featuring the majestic Agra Fort and the exquisite Itimad-ud-Daulah, known as the Baby Taj. With skip-the-line access and a multilingual guide, explore these stunning examples of Mughal craftsmanship.",
+    location: "Agra",
+    duration: "2-3 Hours",
+    price: 13.54,
+    priceINR: 1232,
+    originalPrice: 18.05,
+    originalPriceINR: 1643,
+    category: "taj-mahal",
+    features: ["Pickup Available", "Skip the ticket line"],
+    images: [
+      "/images/taj (59).jpg",
+      "/images/taj (45).jpg",
+      "/images/taj (59).jpg",
+      "/images/taj (42).jpg",
+      "/images/taj (1).jpeg",
+    ],
+    highlights: [
+      "Visit Agra Fort with experienced tour guide",
+      "Explore Itimad-ud-Daulah, the beautiful Baby Taj",
+      "Discover Mughal architecture and royal history",
+      "Skip-the-line entry at both monuments",
+      "Air-conditioned chauffeur-driven car with door-to-door service",
+      "Peaceful riverside setting at Baby Taj",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Agra Fort & Baby Taj Experience",
+        description:
+          "Get picked up from anywhere in Agra (Airport/Railway Station/Hotel) in an air-conditioned chauffeur-driven car. Meet your tour guide and proceed to Agra Fort. Explore the magnificent red sandstone structure built in the 16th century by Emperor Akbar. Discover grand halls, palaces, courtyards, and mosques reflecting Hindu and Mughal architecture (1 hour). Next, visit Itimad-ud-Daulah's Tomb, the Baby Taj, built by Empress Nur Jahan for her father. Admire the intricate inlay work, latticed screens, and serene riverside setting that inspired the Taj Mahal's design (1 hour). After completing your visits, be comfortably dropped back at your preferred location in Agra.",
+      },
+    ],
+  },
 
   // DELHI TOURS
   {
@@ -150,7 +220,6 @@ export const tours: Tour[] = [
     priceINR: 2727,
     originalPrice: 45,
     originalPriceINR: 4091,
-    reviews: 182,
     category: "delhi",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
@@ -176,80 +245,6 @@ export const tours: Tour[] = [
       },
     ],
   },
-  {
-    slug: "old-delhi-food-tour-4-hours",
-    title: "4 Hours: Tasting Old Delhi Food Tour",
-    description:
-      "Embark on a culinary adventure through the narrow lanes of Old Delhi. Taste authentic street food, traditional dishes, and sweet delicacies while learning about Delhi's rich food culture.",
-    location: "Old Delhi",
-    duration: "4 Hours",
-    price: 20,
-    priceINR: 1818,
-    originalPrice: 25,
-    originalPriceINR: 2273,
-    reviews: 98,
-    category: "delhi",
-    features: ["Pickup Available", "Skip the ticket line"],
-    images: [
-      "/images/taj (97).jpg",
-      "/images/taj (95).jpg",
-      "/images/taj (5).jpeg",
-      "/images/taj (97).jpg",
-      "/images/taj (8).jpeg",
-    ],
-    highlights: [
-      "10+ food tastings at iconic eateries",
-      "Try famous paranthas, chaat, and kebabs",
-      "Visit historic Chandni Chowk market",
-      "Learn about Old Delhi's culinary heritage",
-      "Taste traditional sweets and desserts",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Old Delhi Food Trail",
-        description:
-          "Meet at Chandni Chowk metro station. Walk through the historic lanes trying various street foods - paranthas at Paranthe Wali Gali, kebabs at Karim's, jalebis at Old Famous Jalebi Wala, and more. Visit spice markets and learn about Indian spices. End with traditional chai and samosas. Tour concludes at starting point.",
-      },
-    ],
-  },
-  {
-    slug: "delhi-night-tour-4-hours",
-    title: "4 Hours Delhi Night Tour: With Transfers",
-    description:
-      "Experience the magic of Delhi after dark on this 4-hour evening tour. Discover illuminated monuments, vibrant markets, and the city's nightlife while enjoying comfortable transfers throughout the journey.",
-    location: "Delhi",
-    duration: "4 Hours",
-    price: 15,
-    priceINR: 1364,
-    originalPrice: 20,
-    originalPriceINR: 1818,
-    reviews: 72,
-    category: "delhi",
-    features: ["Pickup Available", "Skip the ticket line"],
-    images: [
-      "/images/taj (98).jpg",
-      "/images/taj (94).jpg",
-      "/images/taj (47).jpg",
-      "/images/taj (98).jpg",
-      "/images/taj (11).jpeg",
-    ],
-    highlights: [
-      "See India Gate beautifully illuminated at night",
-      "Drive past Parliament House and Rashtrapati Bhavan",
-      "Visit Akshardham Temple light and water show",
-      "Explore Connaught Place nightlife",
-      "Comfortable air-conditioned transfers included",
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Delhi Night Experience",
-        description:
-          "Evening pickup from your hotel. Begin with illuminated India Gate and war memorial. Drive past the majestic Parliament House and Rashtrapati Bhavan lit up at night. Visit Akshardham Temple for the spectacular light and water show (if time permits). Explore Connaught Place and its vibrant evening atmosphere. Enjoy optional dinner at a local restaurant. Return transfer to your hotel.",
-      },
-    ],
-  },
 
   // GOLDEN TRIANGLE TOURS
   {
@@ -263,7 +258,6 @@ export const tours: Tour[] = [
     priceINR: 10909,
     originalPrice: 171,
     originalPriceINR: 15545,
-    reviews: 200,
     category: "golden-triangle",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
@@ -314,7 +308,6 @@ export const tours: Tour[] = [
     priceINR: 19091,
     originalPrice: 280,
     originalPriceINR: 25455,
-    reviews: 130,
     category: "golden-triangle",
     features: ["Pickup Available", "Skip the ticket line"],
     images: [

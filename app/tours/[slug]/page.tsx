@@ -8,7 +8,7 @@ import { BookingWidget } from "@/components/booking-widget"
 import { BreadcrumbSchema, TouristTripSchema } from "@/components/schema-markup"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
 import { tours } from "@/data/tours"
-import { Calendar, MapPin, DollarSign, ArrowLeft, Star, Check } from "lucide-react"
+import { Calendar, MapPin, DollarSign, ArrowLeft, Check } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
@@ -135,12 +135,6 @@ export default async function TourDetailPage({ params }: Props) {
                     <Calendar className="text-primary" size={20} />
                     <span className="text-foreground font-medium">{tour.duration}</span>
                   </div>
-                  {tour.reviews && (
-                    <div className="flex items-center gap-2">
-                      <Star className="text-secondary fill-secondary" size={20} />
-                      <span className="text-foreground font-medium">{tour.reviews} Reviews</span>
-                    </div>
-                  )}
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-2">
                       <span className="text-foreground font-medium text-lg">From ₹{tour.priceINR.toLocaleString()}</span>
@@ -378,7 +372,6 @@ export default async function TourDetailPage({ params }: Props) {
                     priceINR={relatedTour.priceINR}
                     originalPrice={relatedTour.originalPrice}
                     originalPriceINR={relatedTour.originalPriceINR}
-                    reviews={relatedTour.reviews}
                     features={relatedTour.features}
                     image={relatedTour.images[0]}
                   />

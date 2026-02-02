@@ -106,7 +106,6 @@ function ToursContent() {
                         priceINR={tour.priceINR}
                         originalPrice={tour.originalPrice}
                         originalPriceINR={tour.originalPriceINR}
-                        reviews={tour.reviews}
                         features={tour.features}
                         image={tour.images[0]}
                       />
@@ -138,7 +137,6 @@ function ToursContent() {
                         priceINR={tour.priceINR}
                         originalPrice={tour.originalPrice}
                         originalPriceINR={tour.originalPriceINR}
-                        reviews={tour.reviews}
                         features={tour.features}
                         image={tour.images[0]}
                       />
@@ -162,7 +160,6 @@ function ToursContent() {
                       priceINR={tour.priceINR}
                       originalPrice={tour.originalPrice}
                       originalPriceINR={tour.originalPriceINR}
-                      reviews={tour.reviews}
                       features={tour.features}
                       image={tour.images[0]}
                     />
@@ -193,7 +190,6 @@ function ToursContent() {
                     priceINR={tour.priceINR}
                     originalPrice={tour.originalPrice}
                     originalPriceINR={tour.originalPriceINR}
-                    reviews={tour.reviews}
                     features={tour.features}
                     image={tour.images[0]}
                   />
@@ -224,7 +220,6 @@ function ToursContent() {
                     priceINR={tour.priceINR}
                     originalPrice={tour.originalPrice}
                     originalPriceINR={tour.originalPriceINR}
-                    reviews={tour.reviews}
                     features={tour.features}
                     image={tour.images[0]}
                   />
@@ -256,7 +251,6 @@ function ToursContent() {
                       priceINR={tour.priceINR}
                       originalPrice={tour.originalPrice}
                       originalPriceINR={tour.originalPriceINR}
-                      reviews={tour.reviews}
                       features={tour.features}
                       image={tour.images[0]}
                     />
@@ -288,7 +282,6 @@ function ToursContent() {
                     priceINR={tour.priceINR}
                     originalPrice={tour.originalPrice}
                     originalPriceINR={tour.originalPriceINR}
-                    reviews={tour.reviews}
                     features={tour.features}
                     image={tour.images[0]}
                   />
