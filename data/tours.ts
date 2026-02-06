@@ -43,7 +43,7 @@ export const tours: Tour[] = [
       "/images/taj (69).png",
       "/images/taj (4).jpeg",
     ],
-    videos: [],
+    videos: ["/videos/taj (11).mp4", "/videos/taj (10).mp4"],
     highlights: [
       "Visit the magnificent Taj Mahal with a personalized guide",
       "Enjoy a 5-star government lunch buffet",
@@ -75,13 +75,15 @@ export const tours: Tour[] = [
     features: ["Pickup Available", "Skip the ticket line"],
     images: [
       "/images/taj (41).jpg",
+      "/images/taj (26).jpeg",
       "/images/taj (49).jpg",
       "/images/taj (66).png",
       "/images/taj (41).jpg",
       "/images/taj (42).jpg",   
-      "/images/taj (26).jpeg",
       "/images/taj (28).jpeg",
       "/images/taj (30).jpeg",
+      "/images/taj (35).jpeg",
+      "/images/taj (34).jpeg",
     ],
     videos: [],
     highlights: [
@@ -162,6 +164,8 @@ export const tours: Tour[] = [
       "/images/taj (21).jpeg",
       "/images/taj (7).jpeg",
       "/images/taj (4).jpeg",
+      "/images/taj (33).jpeg",
+      "/images/taj (123).png",
     ],
     highlights: [
       "Stand before shimmering white marble and intricate inlay work",
