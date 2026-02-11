@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api", "/admin"],
     },
-    sitemap: "https://sofiatajtours.com/sitemap.xml",
+    sitemap: "https://www.sofiatajtours.com/sitemap.xml",
   }
 }

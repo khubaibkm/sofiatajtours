@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { tours } from "@/data/tours"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sofiatajtours.com"
+  const baseUrl = "https://www.sofiatajtours.com"
 
   // Static pages
   const staticPages = [
