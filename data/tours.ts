@@ -42,6 +42,10 @@ export const tours: Tour[] = [
       "/images/taj (1).jpeg",
       "/images/taj (69).png",
       "/images/taj (4).jpeg",
+      "/images/taj (45).jpeg",
+      "/images/taj (36).jpeg",
+      "/images/taj (51).jpeg",
+      "/images/taj (44).jpeg",
     ],
     videos: ["/videos/taj (11).mp4", "/videos/taj (10).mp4"],
     highlights: [
@@ -124,6 +128,12 @@ export const tours: Tour[] = [
       "/images/taj (21).jpeg",
       "/images/taj (22).jpeg",
       "/images/taj (24).jpeg",
+      "/images/taj (36).jpeg",
+      "/images/taj (48).jpeg",
+      "/images/taj (46).jpeg",
+      "/images/taj (42).jpeg",
+      "/images/taj (37).jpeg",
+      "/images/taj (43).jpeg",
     ],
     videos: [],
     highlights: [
@@ -206,6 +216,8 @@ export const tours: Tour[] = [
       "/images/taj (27).jpeg",
       "/images/taj (32).jpeg",
       "/images/taj (4).jpeg",
+      "/images/taj (41).jpeg",
+      "/images/taj (43).jpeg",
     ],
     highlights: [
       "Visit Agra Fort with experienced tour guide",
@@ -290,7 +302,6 @@ export const tours: Tour[] = [
       "Visit Taj Mahal, Agra Fort, and Fatehpur Sikri",
       "Explore Amber Fort, City Palace, and Hawa Mahal",
       "See Delhi's top attractions",
-      "2 nights accommodation included",
       "All transfers and transport",
     ],
     itinerary: [
@@ -340,7 +351,6 @@ export const tours: Tour[] = [
       "Complete Golden Triangle with Udaipur",
       "Boat ride on Lake Pichola",
       "Visit City Palace Udaipur and Jaipur",
-      "5 nights accommodation with breakfast",
       "Experience Rajasthani culture and cuisine",
     ],
     itinerary: [
