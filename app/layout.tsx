@@ -10,7 +10,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sofiatajtours.com"),
+  metadataBase: new URL("https://www.sofiatajtours.com"),
   title: "Sofia Taj Tours - Taj Mahal Tours from Delhi | Golden Triangle Tour Packages",
   description:
     "Book your Taj Mahal tour from Delhi with Sofia Taj Tours. Offering same-day tours, Golden Triangle packages, Delhi city tours, and customized India tours with up to 30% discount. 24/7 support & free cancellation.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sofiatajtours.com",
+    url: "https://www.sofiatajtours.com",
     siteName: "Sofia Taj Tours",
     title: "Sofia Taj Tours - Taj Mahal & Golden Triangle Tour Packages",
     description: "Book Taj Mahal tours from Delhi, Golden Triangle packages & Delhi city tours with up to 30% discount. Free cancellation & 24/7 support.",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://sofiatajtours.com",
+    canonical: "https://www.sofiatajtours.com",
   },
   generator: 'v0.app'
 }
@@ -80,7 +80,6 @@ export default function RootLayout({
       <head>
         <OrganizationSchema />
         <WebsiteSchema />
-        <link rel="canonical" href="https://sofiatajtours.com" />
       </head>
       <body className={`font-sans antialiased`}>
         {children}

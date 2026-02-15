@@ -15,8 +15,8 @@ function ToursContent() {
   const category = searchParams.get("category")
 
   const breadcrumbItems = [
-    { name: "Home", url: "https://sofiatajtours.com" },
-    { name: "Tours", url: "https://sofiatajtours.com/tours" },
+    { name: "Home", url: "https://www.sofiatajtours.com" },
+    { name: "Tours", url: "https://www.sofiatajtours.com/tours" },
   ]
 
   const tajMahalTours = tours.filter((tour) => tour.category === "taj-mahal")

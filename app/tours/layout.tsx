@@ -1,18 +1,18 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sofiatajtours.com"),
+  metadataBase: new URL("https://www.sofiatajtours.com"),
   title: "All Tours - Sofia Taj Tours | Taj Mahal, Delhi & Golden Triangle Tours",
   description:
     "Browse all our tour packages including Taj Mahal tours from Delhi, Delhi city tours, Golden Triangle packages, and more. Book your perfect India tour with expert guides and skip-the-line access.",
   keywords: "Taj Mahal tours, Delhi tours, Golden Triangle, Agra tours, India tours, tour packages, private tours, guided tours",
   alternates: {
-    canonical: "https://sofiatajtours.com/tours",
+    canonical: "https://www.sofiatajtours.com/tours",
   },
   openGraph: {
     title: "All Tours - Sofia Taj Tours",
     description: "Browse all our tour packages including Taj Mahal tours, Delhi tours, and Golden Triangle packages.",
-    url: "https://sofiatajtours.com/tours",
+    url: "https://www.sofiatajtours.com/tours",
     type: "website",
     images: [
       {
@@ -22,6 +22,10 @@ export const metadata: Metadata = {
         alt: "Sofia Taj Tours - Tour Collection",
       },
     ],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 

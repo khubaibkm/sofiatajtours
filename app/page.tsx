@@ -12,7 +12,7 @@ import { Heart, MapPin, Users } from "lucide-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sofiatajtours.com"),
+  metadataBase: new URL("https://www.sofiatajtours.com"),
   title: "Sofia Taj Tours - Book Taj Mahal Tours from Delhi | Up to 30% OFF",
   description:
     "Experience the Taj Mahal with Sofia Taj Tours. Book same-day tours, Golden Triangle packages & Delhi city tours with up to 30% discount. Free cancellation, 24/7 support & skip-the-line access.",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sofia Taj Tours - Taj Mahal Tours from Delhi | Up to 30% OFF",
     description: "Book Taj Mahal tours, Golden Triangle packages & Delhi city tours with up to 30% discount. Free cancellation & 24/7 support.",
-    url: "https://sofiatajtours.com",
+    url: "https://www.sofiatajtours.com",
     type: "website",
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://sofiatajtours.com",
+    canonical: "https://www.sofiatajtours.com",
   },
 }
 

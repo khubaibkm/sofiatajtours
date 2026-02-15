@@ -3,8 +3,8 @@ export function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": ["Organization", "TravelAgency", "LocalBusiness"],
     name: "Sofia Taj Tours",
-    url: "https://sofiatajtours.com",
-    logo: "https://sofiatajtours.com/logo.png",
+    url: "https://www.sofiatajtours.com",
+    logo: "https://www.sofiatajtours.com/logo.png",
     description: "Premium Taj Mahal tours from Delhi, Golden Triangle packages, and customized India tours with expert guides and skip-the-line access",
     address: {
       "@type": "PostalAddress",
@@ -42,12 +42,12 @@ export function WebsiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Sofia Taj Tours",
-    url: "https://sofiatajtours.com",
+    url: "https://www.sofiatajtours.com",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://sofiatajtours.com/tours?search={search_term_string}",
+        urlTemplate: "https://www.sofiatajtours.com/tours?search={search_term_string}",
       },
       query_input: "required name=search_term_string",
     },
@@ -107,14 +107,14 @@ export function TouristTripSchema({
         priceCurrency: "INR",
         price: priceINR ? priceINR.toString() : (price * 91).toString(),
         availability: "https://schema.org/InStock",
-        url: `https://sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+        url: `https://www.sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
       },
       {
         "@type": "Offer",
         priceCurrency: "USD",
         price: price.toString(),
         availability: "https://schema.org/InStock",
-        url: `https://sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+        url: `https://www.sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
       },
     ],
   }
