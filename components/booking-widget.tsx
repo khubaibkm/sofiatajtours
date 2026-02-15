@@ -29,7 +29,7 @@ export function BookingWidget({ tourTitle, tourSlug, priceINR, priceUSD, duratio
 *Total Price:* Rs.${totalPriceINR.toLocaleString()} (approx $${totalPriceUSD})
 *Duration:* ${duration}
 
-Tour Link: https://sofiatajtours.com/tours/${tourSlug}
+Tour Link: https://www.sofiatajtours.com/tours/${tourSlug}
 
 Please confirm availability and provide further details. Thank you!`
 

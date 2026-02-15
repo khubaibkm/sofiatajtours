@@ -28,17 +28,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    metadataBase: new URL("https://sofiatajtours.com"),
+    metadataBase: new URL("https://www.sofiatajtours.com"),
     title: `${tour.title} - Sofia Taj Tours | Book Now`,
     description: tour.description,
     keywords: `${tour.location}, ${tour.title}, Taj Mahal tour, India tour, guided tour, private tour, ${tour.category}`,
     alternates: {
-      canonical: `https://sofiatajtours.com/tours/${tour.slug}`,
+      canonical: `https://www.sofiatajtours.com/tours/${tour.slug}`,
     },
     openGraph: {
       title: `${tour.title} - Sofia Taj Tours`,
       description: tour.description,
-      url: `https://sofiatajtours.com/tours/${tour.slug}`,
+      url: `https://www.sofiatajtours.com/tours/${tour.slug}`,
       type: "website",
       images: [
         {
@@ -78,9 +78,9 @@ export default async function TourDetailPage({ params }: Props) {
     .slice(0, 3)
 
   const breadcrumbItems = [
-    { name: "Home", url: "https://sofiatajtours.com" },
-    { name: "Tours", url: "https://sofiatajtours.com/tours" },
-    { name: tour.title, url: `https://sofiatajtours.com/tours/${tour.slug}` },
+    { name: "Home", url: "https://www.sofiatajtours.com" },
+    { name: "Tours", url: "https://www.sofiatajtours.com/tours" },
+    { name: tour.title, url: `https://www.sofiatajtours.com/tours/${tour.slug}` },
   ]
 
   return (
