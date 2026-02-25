@@ -201,7 +201,7 @@ export default function ContactPage() {
                       <option value="Taj Mahal Tour by Car From Delhi">Taj Mahal Tour by Car From Delhi</option>
                       <option value="Sunrise Taj Mahal Tour From Delhi">Sunrise Taj Mahal Tour From Delhi</option>
                       <option value='Skip the line "Taj Mahal" & "Agra Fort" Tickets with live Tour Guide'>Skip the line "Taj Mahal" & "Agra Fort" Tickets with live Tour Guide</option>
-                      <option value="Half Day Agra Fort & Baby Taj Tour from Agra">Half Day Agra Fort & Baby Taj Tour from Agra</option>
+                      <option value="Taj Mahal Same Day Tour from Delhi with Traditional Indian Dress">Taj Mahal Same Day Tour from Delhi with Traditional Indian Dress</option>
                       <option value="Best of Old & New Delhi City Tour in 8 Hours - By Car">Best of Old & New Delhi City Tour in 8 Hours - By Car</option>
                       <option value="Golden Triangle Tour 3 Days - Delhi, Agra & Jaipur 2N/3D">Golden Triangle Tour 3 Days - Delhi, Agra & Jaipur 2N/3D</option>
                       <option value="Golden Triangle Tour Jaipur and Udaipur Package by Car - 5N6D">Golden Triangle Tour Jaipur and Udaipur Package by Car - 5N6D</option>
