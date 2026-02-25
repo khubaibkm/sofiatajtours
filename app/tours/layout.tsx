@@ -4,8 +4,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.sofiatajtours.com"),
   title: "All Tours - Sofia Taj Tours | Taj Mahal, Delhi & Golden Triangle Tours",
   description:
-    "Browse all our tour packages including Taj Mahal tours from Delhi, Delhi city tours, Golden Triangle packages, and more. Book your perfect India tour with expert guides and skip-the-line access.",
-  keywords: "Taj Mahal tours, Delhi tours, Golden Triangle, Agra tours, India tours, tour packages, private tours, guided tours",
+    "Browse all our tour packages including Taj Mahal tours from Delhi with traditional Indian dress, Delhi city tours, Golden Triangle packages, and more. Book your perfect India tour with expert guides and skip-the-line access.",
+  keywords: "Taj Mahal tours, Delhi tours, Golden Triangle, Agra tours, India tours, tour packages, private tours, guided tours, traditional Indian dress, saree photoshoot, cultural experience",
   alternates: {
     canonical: "https://www.sofiatajtours.com/tours",
   },
