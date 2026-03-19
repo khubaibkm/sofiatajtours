@@ -88,6 +88,10 @@ export const tours: Tour[] = [
       "/images/taj (30).jpeg",
       "/images/taj (35).jpeg",
       "/images/taj (34).jpeg",
+      "/images/taj (64).jpeg",
+      "/images/taj (65).jpeg",
+      "/images/taj (78).jpeg",
+      "/images/taj (84).jpeg",
     ],
     videos: [],
     highlights: [
@@ -134,6 +138,10 @@ export const tours: Tour[] = [
       "/images/taj (42).jpeg",
       "/images/taj (37).jpeg",
       "/images/taj (43).jpeg",
+      "/images/taj (66).jpeg",
+      "/images/taj (68).jpeg",
+      "/images/taj (71).jpeg",
+      "/images/taj (81).jpeg",
     ],
     videos: [],
     highlights: [
@@ -176,6 +184,10 @@ export const tours: Tour[] = [
       "/images/taj (4).jpeg",
       "/images/taj (33).jpeg",
       "/images/taj (123).png",
+      "/images/taj (64).jpeg",
+      "/images/taj (78).jpeg",
+      "/images/taj (70).jpeg",
+      "/images/taj (84).jpeg",
     ],
     highlights: [
       "Stand before shimmering white marble and intricate inlay work",
