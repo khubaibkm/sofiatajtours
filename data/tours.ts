@@ -18,6 +18,10 @@ export interface Tour {
     title: string
     description: string
   }>
+  faqs?: Array<{
+    question: string
+    answer: string
+  }>
 }
 
 export const tours: Tour[] = [
@@ -210,7 +214,7 @@ export const tours: Tour[] = [
     slug: "taj-mahal-same-day-tour-delhi-traditional-dress",
     title: "Taj Mahal Same Day Tour from Delhi with Traditional Indian Dress",
     description:
-      "Discover the timeless beauty of the Taj Mahal on a full-day guided tour from Delhi with a unique cultural touch.",
+      "Experience the Taj Mahal like never before on this same-day tour from Delhi! Includes FREE traditional Indian dress (Saree/Kurta) for stunning photoshoots, private AC car, skip-the-line tickets, expert guide, and visits to Taj Mahal & Agra Fort. Perfect for couples, families, and solo travelers. Book now, pay on arrival!",
     location: "Delhi to Agra",
     duration: "10-12 Hours",
     price: 85,
@@ -253,6 +257,56 @@ export const tours: Tour[] = [
         title: "Same Day Taj Mahal Cultural Experience from Delhi",
         description:
           "Early morning pickup from your Delhi hotel or airport in a comfortable private AC car. Drive to Agra via the Yamuna Expressway (approximately 3 hours). Upon arrival, meet your professional English-speaking guide. Visit the iconic Taj Mahal, one of the Seven Wonders of the World, built by Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal. Wear complimentary traditional Indian dress (Saree for women / Kurta for men) to create unforgettable photographs against the stunning white marble monument. Continue to the majestic Agra Fort, a UNESCO World Heritage Site that served as the former residence of Mughal emperors. Explore the grand red sandstone fortress with its beautiful palaces, mosques, and audience halls. Optional lunch at a local restaurant (depending on package selected). Visit a local marble art workshop to see skilled craftsmen creating intricate inlay work similar to that found in the Taj Mahal. Drive back to Delhi and drop-off at your hotel or airport. Tour duration: 10-12 hours. Group Size: Private experience for 2-10 guests. Note: Monument entrance tickets and personal expenses are not included. Pricing varies by group size - 2 people: $120 per person, 3-4 people: $100 per person, 5-10 people: $85 per person. Children (5-10 years) receive 50% discount, Infants (0-4 years) are free.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What time does the Taj Mahal same day tour from Delhi start?",
+        answer: "The tour typically starts with pickup from your Delhi hotel between 6:00-7:00 AM. This early start ensures you reach Agra by 9:00-10:00 AM and have the full day to explore the Taj Mahal and Agra Fort. We can adjust pickup times based on your preference."
+      },
+      {
+        question: "Is the traditional Indian dress (Saree/Kurta) really free?",
+        answer: "Yes! The traditional Indian dress is completely FREE with this tour. Women receive a beautiful Saree and men receive a Kurta. Our guide will help you wear it properly for stunning photographs at the Taj Mahal. You can choose from multiple colors and designs."
+      },
+      {
+        question: "How long do we get to spend at the Taj Mahal?",
+        answer: "You'll have approximately 2-3 hours at the Taj Mahal, giving you plenty of time to explore the monument, take photographs in your traditional dress, learn about its history from your guide, and enjoy the beautiful gardens. We don't rush - this is your experience!"
+      },
+      {
+        question: "Are entrance tickets to Taj Mahal and Agra Fort included?",
+        answer: "Monument entrance tickets are NOT included in the tour price to keep costs flexible. Taj Mahal tickets cost approximately ₹1,100 ($13) for foreigners and ₹50 ($0.60) for Indian nationals. Agra Fort tickets cost approximately ₹650 ($8) for foreigners. Your guide will help you purchase tickets with skip-the-line access."
+      },
+      {
+        question: "Can I book now and pay later?",
+        answer: "Yes! We offer 'Book Now, Pay on Arrival' option. Simply reserve your spot online with zero payment. Pay your guide in cash (INR or USD) when the tour begins. We also accept online payment if you prefer."
+      },
+      {
+        question: "What is included in the tour price?",
+        answer: "Included: Private AC car with fuel, professional English-speaking guide, hotel pickup and drop-off in Delhi, FREE traditional Indian dress (Saree/Kurta), bottled water, all tolls and parking fees. Not included: Monument entrance tickets, lunch, personal expenses, tips (optional)."
+      },
+      {
+        question: "Is lunch included in the Taj Mahal tour?",
+        answer: "Lunch is optional and not included in the base price. However, your guide will recommend excellent local restaurants in Agra where you can enjoy authentic Indian cuisine. Typical lunch costs ₹500-1500 ($6-$18) per person depending on the restaurant."
+      },
+      {
+        question: "What if I want to cancel my Taj Mahal tour?",
+        answer: "We offer FREE cancellation up to 24 hours before your tour starts. Simply contact us via WhatsApp (+91-9368862429) or email. If you cancel within 24 hours or don't show up, cancellation fees may apply. No penalties for weather-related cancellations."
+      },
+      {
+        question: "Is this tour suitable for families with children?",
+        answer: "Absolutely! This tour is perfect for families. Children aged 5-10 get 50% discount, and infants 0-4 years travel free. The private car ensures comfort, and traditional dress is available in children's sizes too. Your guide will engage kids with fascinating stories about the Taj Mahal."
+      },
+      {
+        question: "Can solo travelers join this Taj Mahal tour?",
+        answer: "Yes! Solo travelers are welcome. Since this is a private tour, you'll have the car and guide exclusively to yourself. The per-person price is $120 for solo travelers. It's a safe, comfortable, and personalized experience perfect for solo exploration."
+      },
+      {
+        question: "What should I wear to the Taj Mahal?",
+        answer: "Wear comfortable clothing and walking shoes for the tour. You'll change into the traditional dress (Saree/Kurta) once at the Taj Mahal for photos. Modest clothing is recommended (covered shoulders and knees). Bring sunglasses, sunscreen, and a hat during summer months."
+      },
+      {
+        question: "Is the Taj Mahal open every day?",
+        answer: "The Taj Mahal is open every day EXCEPT Friday (closed for prayers). It's open from sunrise to sunset (approximately 6:00 AM to 7:00 PM). We recommend booking tours from Tuesday to Thursday for fewer crowds. Avoid Sundays and holidays when it's busiest."
       },
     ],
   },

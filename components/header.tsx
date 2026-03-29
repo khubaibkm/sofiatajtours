@@ -90,6 +90,13 @@ export function Header() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
+              href="/blog"
+              className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
+            >
+              Travel Guide
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300"></span>
+            </Link>
+            <Link
               href="/contact"
               className="text-base font-medium text-foreground hover:text-primary transition-colors relative group"
             >
@@ -141,6 +148,13 @@ export function Header() {
               onClick={() => setIsOpen(false)}
             >
               Golden Triangle Tours
+            </Link>
+            <Link
+              href="/blog"
+              className="block py-3 text-sm font-medium text-foreground hover:text-primary hover:pl-2 transition-all"
+              onClick={() => setIsOpen(false)}
+            >
+              Travel Guide
             </Link>
             <Link
               href="/contact"

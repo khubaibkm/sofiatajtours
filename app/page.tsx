@@ -13,14 +13,12 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sofiatajtours.com"),
-  title: "Sofia Taj Tours - Book Taj Mahal Tours from Delhi | Up to 30% OFF",
+  title: "Taj Mahal Day Tour from Delhi (2026) | FREE Traditional Dress + 30% OFF",
   description:
-    "Experience the Taj Mahal with Sofia Taj Tours. Book same-day tours, Golden Triangle packages & Delhi city tours with up to 30% discount. Free cancellation, 24/7 support & skip-the-line access.",
-  keywords:
-    "Taj Mahal tour from Delhi, Golden Triangle tour packages, Delhi city tour, Agra day trip, Jaipur tour, India tour packages, Taj Mahal sunrise tour, private India tours, book Taj Mahal tour",
+    "⭐ BEST Taj Mahal same-day tour from Delhi! Includes FREE traditional Indian dress (Saree/Kurta) for stunning photos | Private AC car | Skip-the-line tickets | Expert guide | 5-star meal option | 30% discount | Free cancellation | Book now, pay on arrival | Sunrise & day tours available",
   openGraph: {
-    title: "Sofia Taj Tours - Taj Mahal Tours from Delhi | Up to 30% OFF",
-    description: "Book Taj Mahal tours, Golden Triangle packages & Delhi city tours with up to 30% discount. Free cancellation & 24/7 support.",
+    title: "Taj Mahal Day Tour from Delhi | FREE Traditional Dress + 30% OFF",
+    description: "⭐ BEST same-day Taj Mahal tour! FREE Saree/Kurta for photos | Private car | Skip-the-line | Expert guide | 30% OFF | Book now!",
     url: "https://www.sofiatajtours.com",
     type: "website",
     images: [
@@ -28,7 +26,7 @@ export const metadata: Metadata = {
         url: "/images/taj (1).jpg",
         width: 1200,
         height: 800,
-        alt: "Taj Mahal Tours from Delhi - Sofia Taj Tours",
+        alt: "Taj Mahal Day Tour from Delhi with Traditional Indian Dress - Best Price Guarantee",
       },
     ],
   },

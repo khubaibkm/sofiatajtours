@@ -108,6 +108,8 @@ export function TouristTripSchema({
         price: priceINR ? priceINR.toString() : (price * 91).toString(),
         availability: "https://schema.org/InStock",
         url: `https://www.sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+        priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+        validFrom: new Date().toISOString().split('T')[0],
       },
       {
         "@type": "Offer",
@@ -115,8 +117,101 @@ export function TouristTripSchema({
         price: price.toString(),
         availability: "https://schema.org/InStock",
         url: `https://www.sofiatajtours.com/tours/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+        priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+        validFrom: new Date().toISOString().split('T')[0],
       },
     ],
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function FAQSchema({ faqs }: { faqs: Array<{ question: string; answer: string }> }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function VideoSchema({
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  contentUrl,
+  duration,
+}: {
+  name: string
+  description: string
+  thumbnailUrl: string
+  uploadDate: string
+  contentUrl: string
+  duration?: string
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: name,
+    description: description,
+    thumbnailUrl: thumbnailUrl,
+    uploadDate: uploadDate,
+    contentUrl: contentUrl,
+    duration: duration || "PT5M",
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function ProductSchema({
+  name,
+  description,
+  image,
+  price,
+  priceCurrency,
+  url,
+  sku,
+}: {
+  name: string
+  description: string
+  image: string
+  price: number
+  priceCurrency: string
+  url: string
+  sku: string
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: name,
+    description: description,
+    image: image,
+    sku: sku,
+    brand: {
+      "@type": "Brand",
+      name: "Sofia Taj Tours",
+    },
+    offers: {
+      "@type": "Offer",
+      url: url,
+      priceCurrency: priceCurrency,
+      price: price.toString(),
+      availability: "https://schema.org/InStock",
+      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+      seller: {
+        "@type": "Organization",
+        name: "Sofia Taj Tours",
+      },
+    },
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

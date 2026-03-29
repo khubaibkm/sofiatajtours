@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import { TourCard } from "@/components/tour-card"
 import { BookingWidget } from "@/components/booking-widget"
-import { BreadcrumbSchema, TouristTripSchema } from "@/components/schema-markup"
+import { BreadcrumbSchema, TouristTripSchema, FAQSchema, ProductSchema, VideoSchema } from "@/components/schema-markup"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
 import { tours } from "@/data/tours"
 import { Calendar, MapPin, DollarSign, ArrowLeft, Check } from "lucide-react"
@@ -96,6 +96,26 @@ export default async function TourDetailPage({ params }: Props) {
         price={tour.price}
         priceINR={tour.priceINR}
       />
+      <ProductSchema
+        name={tour.title}
+        description={tour.description}
+        image={tour.images[0]}
+        price={tour.priceINR}
+        priceCurrency="INR"
+        url={`https://www.sofiatajtours.com/tours/${tour.slug}`}
+        sku={tour.slug}
+      />
+      {tour.faqs && tour.faqs.length > 0 && <FAQSchema faqs={tour.faqs} />}
+      {tour.videos && tour.videos.length > 0 && (
+        <VideoSchema
+          name={`${tour.title} - Video Tour`}
+          description={tour.description}
+          thumbnailUrl={tour.images[0]}
+          uploadDate={new Date().toISOString()}
+          contentUrl={tour.videos[0]}
+          duration="PT5M"
+        />
+      )}
       <Header />
       <main>
         {/* Back Button */}
@@ -258,6 +278,39 @@ export default async function TourDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        {tour.faqs && tour.faqs.length > 0 && (
+          <section className="py-12 md:py-20 bg-muted/30">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
+                  Frequently Asked Questions
+                </h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+                <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                  Everything you need to know about this tour
+                </p>
+              </div>
+              <div className="max-w-4xl mx-auto space-y-4">
+                {tour.faqs.map((faq, index) => (
+                  <details
+                    key={index}
+                    className="group bg-card rounded-lg border border-border overflow-hidden hover:border-primary transition-colors"
+                  >
+                    <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-foreground hover:text-primary transition-colors">
+                      <span className="text-lg">{faq.question}</span>
+                      <span className="ml-4 flex-shrink-0 text-2xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Gallery - Images and Videos */}
         <section className="py-12 md:py-20 bg-gradient-to-b from-background to-card">
