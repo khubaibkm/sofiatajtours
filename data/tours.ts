@@ -163,14 +163,13 @@ export const tours: Tour[] = [
       "Beat the crowds with early access",
       "Professional photography opportunities",
       "Visit Agra Fort after sunrise",
-      "Breakfast and lunch included",
     ],
     itinerary: [
       {
         day: 1,
         title: "Sunrise Taj Mahal Experience",
         description:
-          "Pre-dawn pickup from Delhi (2:30 AM). Drive to Agra in time for sunrise. Enter Taj Mahal as gates open and witness the monument bathed in golden morning light. Guided tour of the Taj Mahal. Breakfast at a local restaurant. Visit Agra Fort. Lunch before returning to Delhi. Evening drop-off at your hotel.",
+          "Pre-dawn pickup from Delhi (2:30 AM). Drive to Agra in time for sunrise. Enter Taj Mahal as gates open and witness the monument bathed in golden morning light. Guided tour of the Taj Mahal. Visit Agra Fort. Return to Delhi. Evening drop-off at your hotel.",
       },
     ],
   },
@@ -271,7 +270,7 @@ export const tours: Tour[] = [
         day: 1,
         title: "Same Day Taj Mahal Cultural Experience from Delhi",
         description:
-          "Early morning pickup from your Delhi hotel or airport in a comfortable private AC car. Drive to Agra via the Yamuna Expressway (approximately 3 hours). Upon arrival, meet your professional English-speaking guide. Visit the iconic Taj Mahal, one of the Seven Wonders of the World, built by Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal. Wear complimentary traditional Indian dress (Saree for women / Kurta for men) to create unforgettable photographs against the stunning white marble monument. Continue to the majestic Agra Fort, a UNESCO World Heritage Site that served as the former residence of Mughal emperors. Explore the grand red sandstone fortress with its beautiful palaces, mosques, and audience halls. Optional lunch at a local restaurant (depending on package selected). Visit a local marble art workshop to see skilled craftsmen creating intricate inlay work similar to that found in the Taj Mahal. Drive back to Delhi and drop-off at your hotel or airport. Tour duration: 10-12 hours. Group Size: Private experience for 2-10 guests. Note: Monument entrance tickets and personal expenses are not included. Pricing varies by group size - 2 people: $120 per person, 3-4 people: $100 per person, 5-10 people: $85 per person. Children (5-10 years) receive 50% discount, Infants (0-4 years) are free.",
+          "Early morning pickup from your Delhi hotel or airport in a comfortable private AC car. Drive to Agra via the Yamuna Expressway (approximately 3 hours). Upon arrival, meet your professional English-speaking guide. Visit the iconic Taj Mahal, one of the Seven Wonders of the World, built by Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal. Wear complimentary traditional Indian dress (Saree for women / Kurta for men) to create unforgettable photographs against the stunning white marble monument. Continue to the majestic Agra Fort, a UNESCO World Heritage Site that served as the former residence of Mughal emperors. Explore the grand red sandstone fortress with its beautiful palaces, mosques, and audience halls. Visit a local marble art workshop to see skilled craftsmen creating intricate inlay work similar to that found in the Taj Mahal. Drive back to Delhi and drop-off at your hotel or airport. Tour duration: 10-12 hours. Group Size: Private experience for 2-10 guests. Note: Monument entrance tickets and personal expenses are not included. Pricing varies by group size - 2 people: $120 per person, 3-4 people: $100 per person, 5-10 people: $85 per person. Children (5-10 years) receive 50% discount, Infants (0-4 years) are free.",
       },
     ],
     faqs: [
@@ -297,11 +296,7 @@ export const tours: Tour[] = [
       },
       {
         question: "What is included in the tour price?",
-        answer: "Included: Private AC car with fuel, professional English-speaking guide, hotel pickup and drop-off in Delhi, FREE traditional Indian dress (Saree/Kurta), bottled water, all tolls and parking fees. Not included: Monument entrance tickets, lunch, personal expenses, tips (optional)."
-      },
-      {
-        question: "Is lunch included in the Taj Mahal tour?",
-        answer: "Lunch is optional and not included in the base price. However, your guide will recommend excellent local restaurants in Agra where you can enjoy authentic Indian cuisine. Typical lunch costs ₹500-1500 ($6-$18) per person depending on the restaurant."
+        answer: "Included: Private AC car with fuel, professional English-speaking guide, hotel pickup and drop-off in Delhi, FREE traditional Indian dress (Saree/Kurta), bottled water, all tolls and parking fees. Not included: Monument entrance tickets, personal expenses, tips (optional)."
       },
       {
         question: "What if I want to cancel my Taj Mahal tour?",
