@@ -41,34 +41,33 @@ const blogPosts = [
     readTime: "8 min read",
     date: "2026-03-15",
   },
-  // Hidden - Coming Soon (publish next week)
-  // {
-  //   slug: "delhi-to-agra-travel-guide",
-  //   title: "Delhi to Agra: Complete Travel Guide (Train, Car, Bus)",
-  //   excerpt: "Everything you need to know about traveling from Delhi to Agra. Compare train, car, and bus options with prices, timings, and booking tips.",
-  //   image: "/images/taj (99).jpg",
-  //   category: "Travel Planning",
-  //   readTime: "12 min read",
-  //   date: "2025-12-28",
-  // },
-  // {
-  //   slug: "golden-triangle-itinerary-7-days",
-  //   title: "Perfect 7-Day Golden Triangle Itinerary (Delhi, Agra, Jaipur)",
-  //   excerpt: "Detailed day-by-day itinerary for the Golden Triangle tour. Includes must-see attractions, hidden gems, hotel recommendations, and budget breakdown.",
-  //   image: "/images/taj (111).jpg",
-  //   category: "Itineraries",
-  //   readTime: "15 min read",
-  //   date: "2025-12-20",
-  // },
-  // {
-  //   slug: "taj-mahal-history-love-story",
-  //   title: "The Taj Mahal Love Story: Shah Jahan & Mumtaz Mahal",
-  //   excerpt: "The romantic history behind the Taj Mahal. Learn about Emperor Shah Jahan's eternal love for Mumtaz Mahal and the 22-year construction of this monument.",
-  //   image: "/images/taj (43).jpg",
-  //   category: "History",
-  //   readTime: "9 min read",
-  //   date: "2025-12-15",
-  // },
+  {
+    slug: "delhi-to-agra-travel-guide",
+    title: "Delhi to Agra: Complete Travel Guide (Train, Car, Bus)",
+    excerpt: "Everything you need to know about traveling from Delhi to Agra. Compare train, car, and bus options with prices, timings, and booking tips.",
+    image: "/images/taj (99).jpg",
+    category: "Travel Planning",
+    readTime: "12 min read",
+    date: "2026-04-15",
+  },
+  {
+    slug: "golden-triangle-itinerary-7-days",
+    title: "Perfect 7-Day Golden Triangle Itinerary (Delhi, Agra, Jaipur)",
+    excerpt: "Detailed day-by-day itinerary for the Golden Triangle tour. Includes must-see attractions, hidden gems, hotel recommendations, and budget breakdown.",
+    image: "/images/taj (111).jpg",
+    category: "Itineraries",
+    readTime: "15 min read",
+    date: "2026-04-20",
+  },
+  {
+    slug: "taj-mahal-history-love-story",
+    title: "The Taj Mahal Love Story: Shah Jahan & Mumtaz Mahal",
+    excerpt: "The romantic history behind the Taj Mahal. Learn about Emperor Shah Jahan's eternal love for Mumtaz Mahal and the 22-year construction of this monument.",
+    image: "/images/taj (43).jpg",
+    category: "History",
+    readTime: "9 min read",
+    date: "2026-04-10",
+  },
 ]
 
 export default function BlogPage() {
@@ -139,12 +138,11 @@ export default function BlogPage() {
               ))}
             </div>
 
-            {/* Coming Soon Notice */}
+            {/* Newsletter CTA */}
             <div className="mt-16 p-8 bg-muted/50 rounded-lg border border-border text-center">
-              <h3 className="text-2xl font-bold text-foreground mb-3">More Articles Coming Soon!</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-3">More Travel Guides Coming!</h3>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                We're constantly adding new travel guides, tips, and insider knowledge. Subscribe to our newsletter to
-                get notified when new articles are published.
+                We're constantly adding new travel guides, tips, and insider knowledge about India.
               </p>
             </div>
           </div>
