@@ -270,7 +270,7 @@ export default async function TourDetailPage({ params }: Props) {
                     </div>
                     <div>
                       <p className="text-muted-foreground">Group Size</p>
-                      <p className="font-semibold text-foreground">4-12 people</p>
+                      <p className="font-semibold text-foreground">2-12 people</p>
                     </div>
                   </div>
                 </div>
