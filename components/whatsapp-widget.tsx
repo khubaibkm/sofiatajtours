@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 
-export function WhatsAppWidget() {
+export function WhatsAppWidget({ className = "bottom-4 md:bottom-6" }: { className?: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   const whatsappNumber = "919368862429"
@@ -11,7 +11,7 @@ export function WhatsAppWidget() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
   return (
-    <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-40">
+    <div className={`fixed left-4 md:left-6 z-40 ${className}`}>
       <Link
         href={whatsappLink}
         target="_blank"

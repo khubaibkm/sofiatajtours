@@ -1,3 +1,6 @@
+import { tourContent } from "./tour-content"
+import { extraTours } from "./extra-tours"
+
 export interface Tour {
   slug: string
   title: string
@@ -17,14 +20,28 @@ export interface Tour {
     day: number
     title: string
     description: string
+    steps?: Array<{ time?: string; title: string; description?: string }>
   }>
+  locale?: "en" | "es"
+  overview?: string[]
+  importantInfo?: string[]
+  // Optional rich details - each block on the tour page renders only when provided.
+  rating?: number
+  reviewCount?: number
+  languages?: string[]
+  groupSize?: string
+  pickup?: string
+  included?: string[]
+  excluded?: string[]
+  whatToBring?: string[]
+  cancellationPolicy?: string
   faqs?: Array<{
     question: string
     answer: string
   }>
 }
 
-export const tours: Tour[] = [
+const baseTours: Tour[] = [
   // TAJ MAHAL TOURS
   {
     slug: "taj-mahal-agra-private-car-day-tour-with-5-star-meal",
@@ -494,3 +511,4 @@ export const tours: Tour[] = [
   },
 ]
 
+export const tours: Tour[] = [...baseTours.map((tour) => ({ ...tour, ...tourContent[tour.slug] })), ...extraTours]

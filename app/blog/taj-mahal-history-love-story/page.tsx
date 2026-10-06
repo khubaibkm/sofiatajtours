@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
-import { BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
+import { BlogPostingSchema, BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,9 +13,22 @@ export const metadata: Metadata = {
     canonical: "https://www.sofiatajtours.com/blog/taj-mahal-history-love-story",
   },
   openGraph: {
+    type: "article",
+    url: "https://www.sofiatajtours.com/blog/taj-mahal-history-love-story",
+    siteName: "Sofia Taj Tours",
+    publishedTime: "2026-04-10",
+    modifiedTime: "2026-04-10",
+    authors: ["Sofia Taj Tours"],
+    section: "History",
     title: "Taj Mahal Love Story: Shah Jahan & Mumtaz Mahal History",
     description: "The romantic history behind the world's greatest monument to love. Learn about Emperor Shah Jahan's eternal devotion to Mumtaz Mahal.",
     images: [{ url: "/images/taj (43).jpg", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taj Mahal Love Story: Shah Jahan & Mumtaz Mahal History",
+    description: "The romantic history behind the world's greatest monument to love. Learn about Emperor Shah Jahan's eternal devotion to Mumtaz Mahal.",
+    images: ["/images/taj (43).jpg"],
   },
 }
 
@@ -56,6 +69,13 @@ export default function BlogPost() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <BlogPostingSchema
+        headline="Taj Mahal Love Story: Shah Jahan & Mumtaz Mahal History"
+        description={metadata.description as string}
+        image="/images/taj (43).jpg"
+        url="https://www.sofiatajtours.com/blog/taj-mahal-history-love-story"
+        datePublished="2026-04-10"
+      />
       <FAQSchema faqs={faqs} />
       <Header />
       <main>

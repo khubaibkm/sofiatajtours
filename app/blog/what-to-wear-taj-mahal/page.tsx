@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
-import { BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
+import { BlogPostingSchema, BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,9 +13,22 @@ export const metadata: Metadata = {
     canonical: "https://www.sofiatajtours.com/blog/what-to-wear-taj-mahal",
   },
   openGraph: {
+    type: "article",
+    url: "https://www.sofiatajtours.com/blog/what-to-wear-taj-mahal",
+    siteName: "Sofia Taj Tours",
+    publishedTime: "2026-03-29",
+    modifiedTime: "2026-03-29",
+    authors: ["Sofia Taj Tours"],
+    section: "Travel Tips",
     title: "What to Wear to Taj Mahal: Dress Code & Traditional Dress Guide",
     description: "Complete dress code guide for Taj Mahal visits. Traditional dress options, modest clothing tips, and seasonal recommendations.",
     images: [{ url: "/images/taj (53).jpeg", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What to Wear to Taj Mahal: Dress Code & Traditional Dress Guide",
+    description: "Complete dress code guide for Taj Mahal visits. Traditional dress options, modest clothing tips, and seasonal recommendations.",
+    images: ["/images/taj (53).jpeg"],
   },
 }
 
@@ -56,6 +69,13 @@ export default function BlogPost() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <BlogPostingSchema
+        headline="What to Wear to Taj Mahal: Dress Code & Traditional Dress Guide"
+        description={metadata.description as string}
+        image="/images/taj (53).jpeg"
+        url="https://www.sofiatajtours.com/blog/what-to-wear-taj-mahal"
+        datePublished="2026-03-29"
+      />
       <FAQSchema faqs={faqs} />
       <Header />
       <main>
@@ -93,7 +113,7 @@ export default function BlogPost() {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Deciding what to wear to the Taj Mahal can be confusing. Is there a dress code? Can you wear shorts? What about traditional Indian clothes? After guiding 5,000+ travelers, here's your complete guide to dressing appropriately, comfortably, and stylishly for your Taj Mahal visit.
+                Deciding what to wear to the Taj Mahal can be confusing. Is there a dress code? Can you wear shorts? What about traditional Indian clothes? After guiding 500+ travelers, here's your complete guide to dressing appropriately, comfortably, and stylishly for your Taj Mahal visit.
               </p>
 
               <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">Quick Answer: Taj Mahal Dress Code</h2>

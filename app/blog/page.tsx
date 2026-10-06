@@ -15,6 +15,24 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    slug: "ranthambore-tiger-safari-golden-triangle",
+    title: "Ranthambore Tiger Safari + Golden Triangle: How to Add Wildlife to Your India Trip",
+    excerpt: "Add a tiger safari to Delhi, Agra and Jaipur. Best time to go, canter vs jeep, what to pack, realistic expectations and a sample 6-day route.",
+    image: "/images/golden-triangle-and-wildlife.jpg",
+    category: "Wildlife",
+    readTime: "11 min read",
+    date: "2026-09-30",
+  },
+  {
+    slug: "jaipur-vs-udaipur-rajasthan-itinerary",
+    title: "Jaipur vs Udaipur: Which Rajasthan City Should You Visit?",
+    excerpt: "The Pink City or the City of Lakes? Compare sights, atmosphere, best time and travel time, and see how to combine both on one 6-day trip.",
+    image: "/hero_section/udaipur_poster.jpg",
+    category: "Rajasthan",
+    readTime: "10 min read",
+    date: "2026-09-29",
+  },
+  {
     slug: "what-to-wear-taj-mahal",
     title: "What to Wear to Taj Mahal: Dress Code, Traditional Dress & Tips",
     excerpt: "Complete guide to dressing for the Taj Mahal visit. Includes dress code rules, traditional Indian dress options, modest clothing tips, and seasonal clothing recommendations.",
@@ -89,7 +107,7 @@ export default function BlogPage() {
         </section>
 
         {/* Blog Posts Grid */}
-        <section className="py-20 md:py-28 bg-background">
+        <section className="pt-4 pb-20 md:pb-28 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post) => (

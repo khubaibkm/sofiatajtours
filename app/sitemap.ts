@@ -43,6 +43,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts
   const blogPosts = [
     {
+      url: `${baseUrl}/blog/ranthambore-tiger-safari-golden-triangle`,
+      lastModified: new Date("2026-09-30"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/jaipur-vs-udaipur-rajasthan-itinerary`,
+      lastModified: new Date("2026-09-29"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog/what-to-wear-taj-mahal`,
       lastModified: new Date("2026-03-29"),
       changeFrequency: "monthly" as const,
@@ -50,31 +62,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog/taj-mahal-photography-guide`,
-      lastModified: new Date("2026-03-25"),
+      lastModified: new Date("2026-01-10"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blog/best-time-visit-taj-mahal`,
-      lastModified: new Date("2026-03-15"),
+      lastModified: new Date("2026-01-15"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blog/delhi-to-agra-travel-guide`,
-      lastModified: new Date("2025-12-28"),
+      lastModified: new Date("2026-04-15"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/blog/golden-triangle-itinerary-7-days`,
-      lastModified: new Date("2025-12-20"),
+      lastModified: new Date("2026-04-20"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/blog/taj-mahal-history-love-story`,
-      lastModified: new Date("2025-12-15"),
+      lastModified: new Date("2026-04-10"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },

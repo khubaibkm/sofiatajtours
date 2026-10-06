@@ -4,7 +4,7 @@ export function OrganizationSchema() {
     "@type": ["Organization", "TravelAgency", "LocalBusiness"],
     name: "Sofia Taj Tours",
     url: "https://www.sofiatajtours.com",
-    logo: "https://www.sofiatajtours.com/logo.png",
+    logo: "https://www.sofiatajtours.com/logo/logo.png",
     description: "Premium Taj Mahal tours from Delhi, Golden Triangle packages, and customized India tours with expert guides and skip-the-line access",
     address: {
       "@type": "PostalAddress",
@@ -27,11 +27,6 @@ export function OrganizationSchema() {
       availableLanguage: ["English", "Hindi"],
       areaServed: "IN",
     },
-    sameAs: [
-      "https://www.facebook.com/sofiatajtours",
-      "https://www.instagram.com/sofiatajtours",
-      "https://www.twitter.com/sofiatajtours",
-    ],
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
@@ -138,6 +133,41 @@ export function FAQSchema({ faqs }: { faqs: Array<{ question: string; answer: st
         text: faq.answer,
       },
     })),
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function BlogPostingSchema({
+  headline,
+  description,
+  image,
+  url,
+  datePublished,
+  dateModified,
+}: {
+  headline: string
+  description: string
+  image: string // path under /public, e.g. "/images/x.jpg"
+  url: string
+  datePublished: string
+  dateModified?: string
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    headline,
+    description,
+    image: [`https://www.sofiatajtours.com${image}`],
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: { "@type": "Organization", name: "Sofia Taj Tours", url: "https://www.sofiatajtours.com" },
+    publisher: {
+      "@type": "Organization",
+      name: "Sofia Taj Tours",
+      logo: { "@type": "ImageObject", url: "https://www.sofiatajtours.com/logo/logo.png" },
+    },
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

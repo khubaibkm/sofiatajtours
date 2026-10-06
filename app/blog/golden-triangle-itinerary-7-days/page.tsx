@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
-import { BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
+import { BlogPostingSchema, BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,9 +13,22 @@ export const metadata: Metadata = {
     canonical: "https://www.sofiatajtours.com/blog/golden-triangle-itinerary-7-days",
   },
   openGraph: {
+    type: "article",
+    url: "https://www.sofiatajtours.com/blog/golden-triangle-itinerary-7-days",
+    siteName: "Sofia Taj Tours",
+    publishedTime: "2026-04-20",
+    modifiedTime: "2026-04-20",
+    authors: ["Sofia Taj Tours"],
+    section: "Itineraries",
     title: "7-Day Golden Triangle Itinerary: Delhi, Agra & Jaipur (2026)",
     description: "Complete day-by-day guide for the iconic Golden Triangle tour. Expert-planned itinerary with hidden gems, budget tips, and transport advice.",
     images: [{ url: "/images/taj (111).jpg", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "7-Day Golden Triangle Itinerary: Delhi, Agra & Jaipur (2026)",
+    description: "Complete day-by-day guide for the iconic Golden Triangle tour. Expert-planned itinerary with hidden gems, budget tips, and transport advice.",
+    images: ["/images/taj (111).jpg"],
   },
 }
 
@@ -56,6 +69,13 @@ export default function BlogPost() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <BlogPostingSchema
+        headline="7-Day Golden Triangle Itinerary: Delhi, Agra & Jaipur (2026)"
+        description={metadata.description as string}
+        image="/images/taj (111).jpg"
+        url="https://www.sofiatajtours.com/blog/golden-triangle-itinerary-7-days"
+        datePublished="2026-04-20"
+      />
       <FAQSchema faqs={faqs} />
       <Header />
       <main>

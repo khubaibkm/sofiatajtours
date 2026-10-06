@@ -9,9 +9,11 @@ interface BookingWidgetProps {
   priceINR: number
   priceUSD: number
   duration: string
+  locale?: "en" | "es"
 }
 
-export function BookingWidget({ tourTitle, tourSlug, priceINR, priceUSD, duration }: BookingWidgetProps) {
+export function BookingWidget({ tourTitle, tourSlug, priceINR, priceUSD, duration, locale = "en" }: BookingWidgetProps) {
+  const es = locale === "es"
   const [date, setDate] = useState("")
   const [people, setPeople] = useState(1)
 
@@ -21,7 +23,19 @@ export function BookingWidget({ tourTitle, tourSlug, priceINR, priceUSD, duratio
   const handleBookOnWhatsApp = () => {
     const whatsappNumber = "919368862429"
 
-    const message = `Hello! I would like to book the following tour:
+    const message = es
+      ? `¡Hola! Me gustaría reservar el siguiente tour:
+
+*Tour:* ${tourTitle}
+*Fecha de viaje:* ${date || "Por definir"}
+*Número de personas:* ${people}
+*Precio total:* Rs.${totalPriceINR.toLocaleString()} (aprox. $${totalPriceUSD})
+*Duración:* ${duration}
+
+Enlace del tour: https://www.sofiatajtours.com/tours/${tourSlug}
+
+Por favor confirme disponibilidad y envíe más detalles. ¡Gracias!`
+      : `Hello! I would like to book the following tour:
 
 *Tour:* ${tourTitle}
 *Travel Date:* ${date || "To be decided"}
@@ -33,6 +47,7 @@ Tour Link: https://www.sofiatajtours.com/tours/${tourSlug}
 
 Please confirm availability and provide further details. Thank you!`
 
+
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappLink, "_blank")
   }
@@ -43,7 +58,7 @@ Please confirm availability and provide further details. Thank you!`
       <div>
         <label htmlFor="date" className="block text-sm font-medium text-foreground mb-2">
           <Calendar className="inline-block mr-2" size={16} />
-          Travel Date
+          {es ? "Fecha de viaje" : "Travel Date"}
         </label>
         <input
           type="date"
@@ -59,7 +74,7 @@ Please confirm availability and provide further details. Thank you!`
       <div>
         <label htmlFor="people" className="block text-sm font-medium text-foreground mb-2">
           <Users className="inline-block mr-2" size={16} />
-          Number of People
+          {es ? "Número de personas" : "Number of People"}
         </label>
         <select
           id="people"
@@ -69,7 +84,7 @@ Please confirm availability and provide further details. Thank you!`
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
             <option key={num} value={num}>
-              {num} {num === 1 ? "Person" : "People"}
+              {num} {es ? (num === 1 ? "Persona" : "Personas") : num === 1 ? "Person" : "People"}
             </option>
           ))}
         </select>
@@ -77,13 +92,13 @@ Please confirm availability and provide further details. Thank you!`
 
       {/* Total Price Display */}
       <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-        <p className="text-sm text-muted-foreground mb-1">Total Price</p>
+        <p className="text-sm text-muted-foreground mb-1">{es ? "Precio total" : "Total Price"}</p>
         <div className="flex items-baseline gap-2">
           <p className="text-3xl font-bold text-primary">₹{totalPriceINR.toLocaleString()}</p>
           <p className="text-lg text-muted-foreground">(${totalPriceUSD})</p>
         </div>
         <p className="text-xs text-muted-foreground mt-1">
-          ₹{priceINR.toLocaleString()} × {people} {people === 1 ? "person" : "people"}
+          ₹{priceINR.toLocaleString()} × {people} {es ? (people === 1 ? "persona" : "personas") : people === 1 ? "person" : "people"}
         </p>
       </div>
 
@@ -93,21 +108,21 @@ Please confirm availability and provide further details. Thank you!`
         className="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all flex items-center justify-center gap-2 shadow-lg"
       >
         <MessageCircle size={20} />
-        Book on WhatsApp
+        {es ? "Reservar por WhatsApp" : "Book on WhatsApp"}
       </button>
 
       {/* Payment Information */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
         <p className="text-blue-700 text-sm font-medium text-center">
-          Flexible Payment - Pay Now or Pay on Arrival
+          {es ? "Pago flexible: pague ahora o a la llegada" : "Flexible Payment - Pay Now or Pay on Arrival"}
         </p>
       </div>
 
       {/* Contact Options */}
       <div className="text-center text-sm text-muted-foreground">
-        or{" "}
+        {es ? "o" : "or"}{" "}
         <a href="/contact" className="text-primary hover:underline font-medium">
-          contact us for custom packages
+          {es ? "contáctenos para paquetes personalizados" : "contact us for custom packages"}
         </a>
       </div>
     </div>
