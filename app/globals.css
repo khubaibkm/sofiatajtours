@@ -212,3 +212,38 @@
     }
   }
 }
+
+/* Image marquee (home page gallery) */
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+  width: max-content;
+  animation: marquee-scroll 70s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}

@@ -108,6 +108,7 @@ function ToursContent() {
                         originalPriceINR={tour.originalPriceINR}
                         features={tour.features}
                         image={tour.images[0]}
+                        locale={tour.locale}
                       />
                     ))}
                   </div>
@@ -139,6 +140,7 @@ function ToursContent() {
                         originalPriceINR={tour.originalPriceINR}
                         features={tour.features}
                         image={tour.images[0]}
+                        locale={tour.locale}
                       />
                     ))}
                   </div>
@@ -162,6 +164,7 @@ function ToursContent() {
                       originalPriceINR={tour.originalPriceINR}
                       features={tour.features}
                       image={tour.images[0]}
+                      locale={tour.locale}
                     />
                   ))}
               </div>
@@ -192,6 +195,7 @@ function ToursContent() {
                     originalPriceINR={tour.originalPriceINR}
                     features={tour.features}
                     image={tour.images[0]}
+                    locale={tour.locale}
                   />
                 ))}
               </div>
@@ -222,6 +226,7 @@ function ToursContent() {
                     originalPriceINR={tour.originalPriceINR}
                     features={tour.features}
                     image={tour.images[0]}
+                    locale={tour.locale}
                   />
                 ))}
               </div>
@@ -253,6 +258,7 @@ function ToursContent() {
                       originalPriceINR={tour.originalPriceINR}
                       features={tour.features}
                       image={tour.images[0]}
+                      locale={tour.locale}
                     />
                   ))}
                 </div>
@@ -284,6 +290,7 @@ function ToursContent() {
                     originalPriceINR={tour.originalPriceINR}
                     features={tour.features}
                     image={tour.images[0]}
+                    locale={tour.locale}
                   />
                 ))}
               </div>

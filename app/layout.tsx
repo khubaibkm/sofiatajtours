@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { OrganizationSchema, WebsiteSchema } from "@/components/schema-markup"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { TawkChat } from "@/components/tawk-chat"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.sofiatajtours.com"),
   title: "Taj Mahal Tours from Delhi (2026) | Save 30% + Free Traditional Dress | Sofia Taj Tours",
   description:
-    "⭐ 5000+ Happy Travelers | Book Taj Mahal day tours from Delhi with FREE traditional Indian dress photoshoot | Skip-the-line tickets | Private AC car | Expert guides | 30% OFF | Free cancellation | Book now, pay later | 24/7 WhatsApp support",
+    "⭐ 500+ Happy Travelers | Book Taj Mahal day tours from Delhi with FREE traditional Indian dress photoshoot | Skip-the-line tickets | Private AC car | Expert guides | 30% OFF | Free cancellation | Book now, pay later | 24/7 WhatsApp support",
   authors: [{ name: "Sofia Taj Tours" }],
   creator: "Sofia Taj Tours",
   publisher: "Sofia Taj Tours",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://www.sofiatajtours.com",
     siteName: "Sofia Taj Tours",
     title: "Taj Mahal Tours from Delhi | Save 30% + Free Traditional Dress",
-    description: "⭐ 5000+ Happy Travelers | Same-day Taj Mahal tours with FREE Saree/Kurta photoshoot | Skip-the-line access | 30% OFF | Free cancellation | Book now!",
+    description: "⭐ 500+ Happy Travelers | Same-day Taj Mahal tours with FREE Saree/Kurta photoshoot | Skip-the-line access | 30% OFF | Free cancellation | Book now!",
     images: [
       {
         url: "/images/taj (1).jpg",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Taj Mahal Tours from Delhi | 30% OFF + Free Traditional Dress",
-    description: "⭐ 5000+ Happy Travelers | Same-day tours with FREE Saree/Kurta | Skip-the-line | Book now, pay later",
+    description: "⭐ 500+ Happy Travelers | Same-day tours with FREE Saree/Kurta | Skip-the-line | Book now, pay later",
     creator: "@sofiatajtours",
     images: ["/images/taj (1).jpg"],
   },
@@ -81,6 +82,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {children}
         <ScrollToTop />
+        <TawkChat />
         <Analytics />
       </body>
     </html>

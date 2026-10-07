@@ -7,8 +7,11 @@ import { TourCard } from "@/components/tour-card"
 import { BookingWidget } from "@/components/booking-widget"
 import { BreadcrumbSchema, TouristTripSchema, FAQSchema, ProductSchema, VideoSchema } from "@/components/schema-markup"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
+import { LightboxGallery } from "@/components/lightbox-gallery"
+import { TripAdvisorReviews } from "@/components/tripadvisor-reviews"
 import { tours } from "@/data/tours"
-import { Calendar, MapPin, DollarSign, ArrowLeft, Check } from "lucide-react"
+import { tripAdvisor } from "@/data/site"
+import { MapPin, Check, X, Clock, Users, Languages, Car, ShieldCheck, Wallet, Star, MessageCircle, ChevronRight, BedDouble, Info, Headset } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
@@ -83,6 +86,116 @@ export default async function TourDetailPage({ params }: Props) {
     { name: tour.title, url: `https://www.sofiatajtours.com/tours/${tour.slug}` },
   ]
 
+  const es = tour.locale === "es"
+  const t = es
+    ? {
+        home: "Inicio",
+        tours: "Tours",
+        overview: "Descripción general",
+        glance: "El tour de un vistazo",
+        duration: "Duración",
+        location: "Ubicación",
+        group: "Tamaño del grupo",
+        groupDefault: "2-12 personas",
+        pickup: "Recogida",
+        guideLang: "Idioma del guía",
+        cancellation: "Cancelación",
+        freeCancel: "Cancelación gratuita",
+        payment: "Pago",
+        payLater: "Reserve ahora, pague a la llegada",
+        highlights: "Por qué elegir este tour",
+        itinerary: "Itinerario",
+        itineraryMulti: "Itinerario día a día",
+        overnight: "Noche en",
+        included: "Qué incluye",
+        excluded: "No incluido",
+        goodToKnow: "Información importante",
+        bring: "Qué llevar",
+        cancelLabel: "Cancelación",
+        videos: "Videos del tour",
+        from: "Desde",
+        startingFrom: "Precio desde",
+        perPerson: "por persona",
+        off: "DTO.",
+        support: "Soporte 24/7 por WhatsApp",
+        taRated: "Valorado por viajeros en Tripadvisor",
+        reviewsWord: "reseñas",
+        tripadvisorReviews: "reseñas en Tripadvisor",
+        reviewsTitle: "Lo que dicen los viajeros sobre Sofia Taj Tours",
+        faq: "Preguntas frecuentes",
+        faqSub: "Todo lo que necesita saber sobre este tour",
+        alsoLike: "También le puede interesar",
+        ctaTitle: "¿Listo para explorar?",
+        ctaDesc: "Únase a nosotros y cree recuerdos que durarán toda la vida.",
+        ctaButton: "Reservar su tour",
+        bookWa: "Reservar por WhatsApp",
+        waMsg: "¡Hola! Me gustaría reservar",
+      }
+    : {
+        home: "Home",
+        tours: "Tours",
+        overview: "Overview",
+        glance: "Tour at a Glance",
+        duration: "Duration",
+        location: "Location",
+        group: "Group size",
+        groupDefault: "2-12 people",
+        pickup: "Pickup",
+        guideLang: "Guide languages",
+        cancellation: "Cancellation",
+        freeCancel: "Free cancellation",
+        payment: "Payment",
+        payLater: "Book now, pay on arrival",
+        highlights: "Tour Highlights",
+        itinerary: "Itinerary",
+        itineraryMulti: "Day-by-Day Itinerary",
+        overnight: "Overnight in",
+        included: "What's Included",
+        excluded: "Not Included",
+        goodToKnow: "Good to Know",
+        bring: "What to bring:",
+        cancelLabel: "Cancellation:",
+        videos: "Tour Videos",
+        from: "From",
+        startingFrom: "Starting from",
+        perPerson: "per person",
+        off: "OFF",
+        support: "24/7 support on WhatsApp",
+        taRated: "Rated by travelers on Tripadvisor",
+        reviewsWord: "reviews",
+        tripadvisorReviews: "Tripadvisor reviews",
+        reviewsTitle: "What Travelers Say About Sofia Taj Tours",
+        faq: "Frequently Asked Questions",
+        faqSub: "Everything you need to know about this tour",
+        alsoLike: "You May Also Like",
+        ctaTitle: "Ready to Explore?",
+        ctaDesc: "Join us on this incredible journey and create memories that will last a lifetime.",
+        ctaButton: "Book Your Tour",
+        bookWa: "Book on WhatsApp",
+        waMsg: "Hello! I would like to book",
+      }
+
+  const overview = tour.overview && tour.overview.length > 0 ? tour.overview : [tour.description]
+  const isMultiDay = tour.itinerary.length > 1
+  const discountPercent = tour.originalPriceINR
+    ? Math.round(((tour.originalPriceINR - tour.priceINR) / tour.originalPriceINR) * 100)
+    : 0
+  const bookingMessage = encodeURIComponent(
+    `${t.waMsg}: ${tour.title}\nhttps://www.sofiatajtours.com/tours/${tour.slug}`,
+  )
+
+  const glance = [
+    { icon: Clock, label: t.duration, value: tour.duration },
+    { icon: MapPin, label: t.location, value: tour.location },
+    { icon: Users, label: t.group, value: tour.groupSize || t.groupDefault },
+    ...(tour.pickup ? [{ icon: Car, label: t.pickup, value: tour.pickup }] : []),
+    ...(tour.languages && tour.languages.length > 0
+      ? [{ icon: Languages, label: t.guideLang, value: tour.languages.join(", ") }]
+      : []),
+    { icon: ShieldCheck, label: t.cancellation, value: t.freeCancel },
+    { icon: Wallet, label: t.payment, value: t.payLater },
+  ]
+
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
@@ -117,88 +230,103 @@ export default async function TourDetailPage({ params }: Props) {
         />
       )}
       <Header />
-      <main>
-        {/* Back Button */}
-        <div className="bg-background border-b border-border sticky top-16 z-40">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <Link
-              href="/tours"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition"
-            >
-              <ArrowLeft size={20} />
-              <span className="font-medium">Back to Tours</span>
-            </Link>
+      <main lang={es ? "es" : undefined}>
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="bg-background border-b border-border">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-sm text-muted-foreground overflow-x-auto whitespace-nowrap">
+            <Link href="/" className="hover:text-primary transition">{t.home}</Link>
+            <ChevronRight size={14} />
+            <Link href="/tours" className="hover:text-primary transition">{t.tours}</Link>
+            <ChevronRight size={14} />
+            <span className="text-foreground font-medium truncate">{tour.title}</span>
           </div>
-        </div>
+        </nav>
 
-        {/* Hero Image Gallery */}
-        <section className="relative h-[400px] md:h-[500px] bg-muted overflow-hidden">
-          <Image src={tour.images[0] || "/placeholder.svg"} alt={tour.title} fill className="object-cover object-top" priority />
-          <div className="absolute inset-0 bg-black/20" />
-        </section>
-
-        {/* Tour Details */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="pt-6 pb-12 md:pb-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Title */}
+            <div className="mb-6">
+              <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3 text-balance">{tour.title}</h1>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+                {tripAdvisor && (
+                  <a
+                    href={tripAdvisor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-primary transition"
+                  >
+                    <Star size={16} className="fill-secondary text-secondary" />
+                    <span className="font-semibold text-foreground">{tripAdvisor.rating.toFixed(1)}</span>
+                    <span className="underline underline-offset-2">({tripAdvisor.reviewCount} {t.tripadvisorReviews})</span>
+                  </a>
+                )}
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={16} className="text-secondary" />
+                  {tour.location}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Clock size={16} className="text-secondary" />
+                  {tour.duration}
+                </span>
+              </div>
+            </div>
+
+            {/* Gallery */}
+            <div className="mb-10">
+              <LightboxGallery images={tour.images} title={tour.title} />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
               {/* Main Content */}
-              <div className="lg:col-span-2">
-                <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">{tour.title}</h1>
-
-                {/* Quick Info */}
-                <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="text-primary" size={20} />
-                    <span className="text-foreground font-medium">{tour.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="text-primary" size={20} />
-                    <span className="text-foreground font-medium">{tour.duration}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-foreground font-medium text-lg">From ₹{tour.priceINR.toLocaleString()}</span>
-                      {tour.originalPriceINR && (
-                        <span className="text-muted-foreground line-through text-sm">₹{tour.originalPriceINR.toLocaleString()}</span>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <DollarSign className="text-primary" size={16} />
-                      <span className="text-muted-foreground text-sm">${tour.price} USD</span>
-                      {tour.originalPrice && (
-                        <span className="text-muted-foreground line-through text-xs">${tour.originalPrice}</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
+              <div className="lg:col-span-2 space-y-12">
                 {/* Features */}
                 {tour.features && tour.features.length > 0 && (
-                  <div className="flex flex-wrap gap-3 mb-8">
+                  <div className="flex flex-wrap gap-2">
                     {tour.features.map((feature, index) => (
                       <span
                         key={index}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 text-secondary rounded-sm font-medium text-sm"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-secondary/20 text-foreground rounded-sm font-medium text-sm"
                       >
-                        <Check size={16} />
+                        <Check size={14} className="text-accent" />
                         {feature}
                       </span>
                     ))}
                   </div>
                 )}
 
-                {/* Description */}
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{tour.description}</p>
+                {/* Overview */}
+                <div>
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{t.overview}</h2>
+                  <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                    {overview.map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+
+                {/* At a glance */}
+                <div>
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{t.glance}</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {glance.map(({ icon: Icon, label, value }) => (
+                      <div key={label} className="flex items-start gap-3 p-4 bg-card rounded-lg border border-border/60">
+                        <Icon className="text-primary flex-shrink-0 mt-0.5" size={20} />
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-muted-foreground">{label}</p>
+                          <p className="text-sm font-semibold text-foreground">{value}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 {/* Highlights */}
-                <div className="mb-12">
-                  <h2 className="text-2xl font-bold text-foreground mb-6">Tour Highlights</h2>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{t.highlights}</h2>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 p-6 bg-card rounded-lg border border-border/60">
                     {tour.highlights.map((highlight, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                          <div className="w-2 h-2 rounded-full bg-primary" />
-                        </div>
+                        <Check size={18} className="text-accent flex-shrink-0 mt-1" />
                         <span className="text-foreground">{highlight}</span>
                       </li>
                     ))}
@@ -207,89 +335,231 @@ export default async function TourDetailPage({ params }: Props) {
 
                 {/* Itinerary */}
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-6">Day-by-Day Itinerary</h2>
-                  <div className="space-y-4">
-                    {tour.itinerary.map((day) => (
-                      <div
-                        key={day.day}
-                        className="p-4 bg-card rounded-lg border border-border hover:border-primary transition"
-                      >
-                        <h3 className="text-lg font-semibold text-foreground mb-2">
-                          Day {day.day}: {day.title}
-                        </h3>
-                        <p className="text-muted-foreground">{day.description}</p>
-                      </div>
-                    ))}
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-6">
+                    {isMultiDay ? t.itineraryMulti : t.itinerary}
+                  </h2>
+                  <div className="space-y-10">
+                    {tour.itinerary.map((day) => {
+                      const overnight = day.description.match(/Overnight in ([A-Za-z ]+)\./)?.[1]
+                      const body = day.description.replace(/\s*Overnight in [A-Za-z ]+\./, "")
+                      return (
+                        <div key={day.day}>
+                          {(isMultiDay || day.title) && (
+                            <div className="flex flex-wrap items-center gap-3 mb-4">
+                              {isMultiDay && (
+                                <span className="px-3 py-1 rounded-sm bg-primary text-primary-foreground text-sm font-bold">
+                                  Day {day.day}
+                                </span>
+                              )}
+                              <h3 className="text-lg font-semibold text-foreground">{day.title}</h3>
+                              {overnight && (
+                                <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                                  <BedDouble size={16} className="text-secondary" />
+                                  {t.overnight} {overnight}
+                                </span>
+                              )}
+                            </div>
+                          )}
+
+                          {day.steps && day.steps.length > 0 ? (
+                            <ol className="relative ml-3 border-l-2 border-secondary/40 space-y-6">
+                              {day.steps.map((step, i) => (
+                                <li key={i} className="pl-6 relative">
+                                  <span className="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-secondary border-2 border-background" />
+                                  {step.time && <p className="text-sm font-bold text-primary">{step.time}</p>}
+                                  <p className="font-semibold text-foreground">{step.title}</p>
+                                  {step.description && <p className="text-muted-foreground mt-1">{step.description}</p>}
+                                </li>
+                              ))}
+                            </ol>
+                          ) : (
+                            <p className="text-muted-foreground leading-relaxed p-5 bg-card rounded-lg border border-border/60">
+                              {body}
+                            </p>
+                          )}
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
+
+                {/* Included / Excluded */}
+                {((tour.included && tour.included.length > 0) || (tour.excluded && tour.excluded.length > 0)) && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {tour.included && tour.included.length > 0 && (
+                      <div className="p-6 bg-card rounded-lg border border-border/60">
+                        <h2 className="text-xl font-serif font-bold text-foreground mb-4">{t.included}</h2>
+                        <ul className="space-y-3">
+                          {tour.included.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 text-foreground">
+                              <Check size={18} className="text-accent flex-shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {tour.excluded && tour.excluded.length > 0 && (
+                      <div className="p-6 bg-card rounded-lg border border-border/60">
+                        <h2 className="text-xl font-serif font-bold text-foreground mb-4">{t.excluded}</h2>
+                        <ul className="space-y-3">
+                          {tour.excluded.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 text-foreground">
+                              <X size={18} className="text-destructive flex-shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Important information */}
+                {((tour.importantInfo && tour.importantInfo.length > 0) ||
+                  (tour.whatToBring && tour.whatToBring.length > 0) ||
+                  tour.cancellationPolicy) && (
+                  <div className="p-6 rounded-lg border border-secondary/50 bg-secondary/10">
+                    <h2 className="text-xl font-serif font-bold text-foreground mb-4 flex items-center gap-2">
+                      <Info size={20} className="text-primary" />
+                      {t.goodToKnow}
+                    </h2>
+                    <ul className="space-y-3 text-foreground">
+                      {tour.importantInfo?.map((item, i) => (
+                        <li key={`info-${i}`} className="flex items-start gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                      {tour.whatToBring?.map((item, i) => (
+                        <li key={`bring-${i}`} className="flex items-start gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span>
+                            <strong>{t.bring}</strong> {item}
+                          </span>
+                        </li>
+                      ))}
+                      {tour.cancellationPolicy && (
+                        <li className="flex items-start gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span>
+                            <strong>{t.cancelLabel}</strong> {tour.cancellationPolicy}
+                          </span>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Videos */}
+                {tour.videos && tour.videos.length > 0 && (
+                  <div>
+                    <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{t.videos}</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {tour.videos.map((video, index) => (
+                        <video
+                          key={`video-${index}`}
+                          src={video}
+                          controls
+                          preload="none"
+                          playsInline
+                          className="w-full aspect-[9/16] sm:aspect-video max-h-[480px] rounded-xl bg-black object-cover"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Sidebar - Booking Card */}
               <div className="lg:col-span-1">
-                <div className="sticky top-24 p-6 bg-card rounded-xl border border-border shadow-sm">
-                  <div className="mb-6">
-                    <p className="text-muted-foreground text-sm">Starting from</p>
-                    <div className="flex items-baseline gap-3 mb-2">
-                      <p className="text-4xl font-bold text-primary">₹{tour.priceINR.toLocaleString()}</p>
-                      {tour.originalPriceINR && (
-                        <p className="text-xl text-muted-foreground line-through">₹{tour.originalPriceINR.toLocaleString()}</p>
+                <div className="lg:sticky lg:top-32 space-y-4">
+                  <div className="p-6 bg-card rounded-xl border border-border shadow-sm">
+                    <div className="mb-5">
+                      {discountPercent > 0 && (
+                        <span className="inline-block mb-2 px-2.5 py-1 rounded-sm bg-primary text-primary-foreground text-xs font-bold">
+                          {discountPercent}% {t.off}
+                        </span>
                       )}
-                    </div>
-                    <div className="flex items-baseline gap-2">
-                      <p className="text-lg text-muted-foreground">${tour.price} USD</p>
-                      {tour.originalPrice && (
-                        <p className="text-sm text-muted-foreground line-through">${tour.originalPrice}</p>
-                      )}
-                    </div>
-                    <p className="text-muted-foreground text-sm mt-1">per person</p>
-                    {tour.originalPriceINR && (
-                      <p className="text-secondary font-semibold text-sm mt-2">
-                        Save ₹{(tour.originalPriceINR - tour.priceINR).toLocaleString()} ({Math.round(((tour.originalPriceINR - tour.priceINR) / tour.originalPriceINR) * 100)}% OFF)
+                      <p className="text-muted-foreground text-sm">{t.startingFrom}</p>
+                      <div className="flex items-baseline gap-3">
+                        <p className="text-4xl font-bold text-primary">₹{Math.round(tour.priceINR).toLocaleString()}</p>
+                        {tour.originalPriceINR && (
+                          <p className="text-lg text-muted-foreground line-through">
+                            ₹{Math.round(tour.originalPriceINR).toLocaleString()}
+                          </p>
+                        )}
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        ≈ ${Math.round(tour.price)} USD &bull; {t.perPerson}
                       </p>
-                    )}
+                    </div>
+
+                    <BookingWidget
+                      tourTitle={tour.title}
+                      tourSlug={tour.slug}
+                      priceINR={tour.priceINR}
+                      priceUSD={tour.price}
+                      duration={tour.duration}
+                      locale={tour.locale}
+                    />
+
+                    <ul className="mt-5 pt-5 border-t border-border space-y-2.5 text-sm text-foreground">
+                      <li className="flex items-center gap-2.5">
+                        <ShieldCheck size={16} className="text-accent" /> {t.freeCancel}
+                      </li>
+                      <li className="flex items-center gap-2.5">
+                        <Wallet size={16} className="text-accent" /> {t.payLater}
+                      </li>
+                      <li className="flex items-center gap-2.5">
+                        <Headset size={16} className="text-accent" /> {t.support}
+                      </li>
+                    </ul>
                   </div>
 
-                  {/* Booking Widget */}
-                  <BookingWidget
-                    tourTitle={tour.title}
-                    tourSlug={tour.slug}
-                    priceINR={tour.priceINR}
-                    priceUSD={tour.price}
-                    duration={tour.duration}
-                  />
-
-                  {/* Additional Info */}
-                  <div className="mt-6 pt-6 border-t border-border space-y-3 text-sm">
-                    <div>
-                      <p className="text-muted-foreground">Duration</p>
-                      <p className="font-semibold text-foreground">{tour.duration}</p>
-                    </div>
-                    <div>
-                      <p className="text-muted-foreground">Location</p>
-                      <p className="font-semibold text-foreground">{tour.location}</p>
-                    </div>
-                    <div>
-                      <p className="text-muted-foreground">Group Size</p>
-                      <p className="font-semibold text-foreground">2-12 people</p>
-                    </div>
-                  </div>
+                  {tripAdvisor && (
+                    <a
+                      href={tripAdvisor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary transition"
+                    >
+                      <Image src="/logo/tripadvisor_logo.png" alt="Tripadvisor" width={1200} height={266} className="h-7 w-auto" />
+                      <div className="text-sm leading-tight">
+                        <div className="flex mb-1" aria-hidden>
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star key={i} size={14} className="fill-secondary text-secondary" />
+                          ))}
+                        </div>
+                        <p className="font-semibold text-foreground">
+                          {tripAdvisor.rating.toFixed(1)} &bull; {tripAdvisor.reviewCount} {t.reviewsWord}
+                        </p>
+                        <p className="text-muted-foreground">{t.taRated}</p>
+                      </div>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Reviews */}
+        <TripAdvisorReviews title={t.reviewsTitle} className="py-12 md:py-16 bg-muted/30" />
+
         {/* FAQ Section */}
         {tour.faqs && tour.faqs.length > 0 && (
-          <section className="py-12 md:py-20 bg-muted/30">
+          <section className="py-12 md:py-20 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
-                  Frequently Asked Questions
+                  {t.faq}
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
                 <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-                  Everything you need to know about this tour
+                  {t.faqSub}
                 </p>
               </div>
               <div className="max-w-4xl mx-auto space-y-4">
@@ -298,13 +568,11 @@ export default async function TourDetailPage({ params }: Props) {
                     key={index}
                     className="group bg-card rounded-lg border border-border overflow-hidden hover:border-primary transition-colors"
                   >
-                    <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-foreground hover:text-primary transition-colors">
+                    <summary className="flex items-center justify-between cursor-pointer p-5 font-semibold text-foreground hover:text-primary transition-colors">
                       <span className="text-lg">{faq.question}</span>
                       <span className="ml-4 flex-shrink-0 text-2xl group-open:rotate-45 transition-transform">+</span>
                     </summary>
-                    <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </div>
+                    <div className="px-5 pb-5 text-muted-foreground leading-relaxed">{faq.answer}</div>
                   </details>
                 ))}
               </div>
@@ -312,106 +580,13 @@ export default async function TourDetailPage({ params }: Props) {
           </section>
         )}
 
-        {/* Gallery - Images and Videos */}
-        <section className="py-12 md:py-20 bg-gradient-to-b from-background to-card">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
-                Experience the Journey
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-                Get a glimpse of the unforgettable moments that await you on this tour
-              </p>
-            </div>
-
-            {/* Main Gallery Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6">
-              {/* Featured Item - Large - Show second image */}
-              <div className="relative h-[300px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden group">
-                <Image
-                  src={tour.images[1] || tour.images[0] || "/placeholder.svg"}
-                  alt={tour.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-
-              {/* Grid of smaller items */}
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                {tour.images.slice(2, 6).map((image, index) => (
-                  <div
-                    key={`img-${index}`}
-                    className="relative h-[145px] md:h-[240px] lg:h-[290px] rounded-xl overflow-hidden group"
-                  >
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`${tour.title} - ${index + 3}`}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Videos Section */}
-            {tour.videos && tour.videos.length > 0 && (
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Tour Videos</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  {tour.videos.map((video, index) => (
-                    <div key={`video-${index}`} className="relative h-[300px] md:h-[420px] rounded-xl overflow-hidden bg-black">
-                      <video
-                        src={video}
-                        controls
-                        preload="metadata"
-                        className="w-full h-full object-cover rounded-xl"
-                      >
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Rest of Images */}
-            {tour.images.length > 6 && (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {tour.images.slice(6).map((image, index) => (
-                  <div
-                    key={`extra-img-${index}`}
-                    className="relative h-[150px] md:h-[200px] rounded-lg overflow-hidden group"
-                  >
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`${tour.title} - ${index + 7}`}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-
         {/* Related Tours */}
         {relatedTours.length > 0 && (
-          <section className="py-12 md:py-20 bg-background">
+          <section className="py-12 md:py-20 bg-muted/30">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
-                  You May Also Like
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">{t.alsoLike}</h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-                <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-                  Discover more amazing tours in the same category
-                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {relatedTours.map((relatedTour) => (
@@ -427,6 +602,7 @@ export default async function TourDetailPage({ params }: Props) {
                     originalPriceINR={relatedTour.originalPriceINR}
                     features={relatedTour.features}
                     image={relatedTour.images[0]}
+                    locale={relatedTour.locale}
                   />
                 ))}
               </div>
@@ -436,14 +612,32 @@ export default async function TourDetailPage({ params }: Props) {
 
         {/* CTA Section */}
         <CTASection
-          title="Ready to Explore?"
-          description="Join us on this incredible journey and create memories that will last a lifetime."
-          buttonText="Book Your Tour"
+          title={t.ctaTitle}
+          description={t.ctaDesc}
+          buttonText={t.ctaButton}
           buttonHref="/tours"
         />
+
+        {/* Sticky mobile booking bar */}
+        <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-card/95 backdrop-blur border-t border-border px-4 py-3 flex items-center justify-between gap-3">
+          <div>
+            <p className="text-xs text-muted-foreground leading-none">{t.from}</p>
+            <p className="text-xl font-bold text-primary leading-tight">₹{Math.round(tour.priceINR).toLocaleString()}</p>
+          </div>
+          <a
+            href={`https://wa.me/919368862429?text=${bookingMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-sm bg-primary text-primary-foreground font-bold text-sm"
+          >
+            <MessageCircle size={18} />
+            {t.bookWa}
+          </a>
+        </div>
       </main>
+      <div className="h-16 lg:hidden" aria-hidden />
       <Footer />
-      <WhatsAppWidget />
+      <WhatsAppWidget className="bottom-20 lg:bottom-6" />
     </>
   )
 }

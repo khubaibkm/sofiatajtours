@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -7,7 +6,13 @@ import { CTASection } from "@/components/cta-section"
 import { FlexibilitySection } from "@/components/flexibility-section"
 import { FAQSection } from "@/components/faq-section"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
+import { HeroSlider } from "@/components/hero-slider"
+import { PartnersSection } from "@/components/partners-section"
+import { BestSeller } from "@/components/best-seller"
+import { MarqueeGallery } from "@/components/marquee-gallery"
+import { TripAdvisorReviews } from "@/components/tripadvisor-reviews"
 import { tours } from "@/data/tours"
+import { heroSlides } from "@/data/site"
 import { Heart, MapPin, Users } from "lucide-react"
 import type { Metadata } from "next"
 
@@ -36,35 +41,30 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-    const featuredTours = [
-    tours.find(t => t.slug === "taj-mahal-agra-private-car-day-tour-with-5-star-meal"),
-    tours.find(t => t.slug === "old-new-delhi-city-tour-8-hours"),
-    tours.find(t => t.slug === "golden-triangle-tour-3-days"),
+  // Curated best tours (the best-seller spotlight above already features the sunrise tour).
+  const featuredTours = [
+    tours.find((t) => t.slug === "taj-mahal-same-day-tour-delhi-traditional-dress"),
+    tours.find((t) => t.slug === "skip-the-line-taj-mahal-agra-fort-tickets-with-guide"),
+    tours.find((t) => t.slug === "golden-triangle-tour-3-days"),
   ].filter(Boolean)
+
+  // Spotlight tour - change the slug to feature a different tour.
+  const bestSeller = tours.find((t) => t.slug === "sunrise-taj-mahal-tour-from-delhi")
+
+  // Gallery photos: the first few of each tour, without repeats.
+  const galleryImages = Array.from(new Set(tours.flatMap((t) => t.images.slice(0, 3))))
 
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-          {/* Desktop Hero Image */}
-          <Image
-            src="/images/hero.png"
-            alt="Sofia Taj Tours"
-            fill
-            className="object-cover object-top hidden md:block"
-            priority
-          />
-          {/* Mobile Hero Image */}
-          <Image
-            src="/images/hero_mobile.png"
-            alt="Sofia Taj Tours"
-            fill
-            className="object-cover object-top md:hidden"
-            priority
-          />
-        </section>
+        <h1 className="sr-only">Taj Mahal Tours from Delhi and Agra - Sofia Taj Tours</h1>
+        <HeroSlider slides={heroSlides} />
+        <TripAdvisorReviews />
+
+        {bestSeller && <BestSeller tour={bestSeller} />}
+
+        <PartnersSection />
 
         {/* Featured Tours */}
         <section className="py-20 md:py-28 bg-background">
@@ -93,6 +93,7 @@ export default function Home() {
                   originalPriceINR={tour.originalPriceINR}
                   features={tour.features}
                   image={tour.images[0]}
+                  locale={tour.locale}
                 />
               ))}
             </div>
@@ -157,7 +158,7 @@ export default function Home() {
                   label: "Years of Excellence",
                 },
                 {
-                  number: "5000+",
+                  number: "500+",
                   label: "Happy Travelers",
                 },
                 {
@@ -178,54 +179,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Tour Categories Section */}
-        <section className="py-20 md:py-28 bg-background">
+        {/* Photo Gallery */}
+        <section className="py-16 md:py-24 bg-muted/30 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-                Taj Mahal Tour Packages
-              </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">Moments From Our Tours</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-6">
-                Explore our carefully curated tour packages designed to give you the best experience
+                Photos from our tours. Tap any photo to see it larger.
               </p>
             </div>
-
-            {/* Taj Mahal Tours */}
-            <div id="taj-mahal-tours" className="mb-0 scroll-mt-20">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-3xl font-serif font-bold text-foreground">
-                  Taj Mahal Tours
-                </h3>
-                <Link
-                  href="/tours#taj-mahal-tours"
-                  className="text-primary hover:text-primary/80 font-semibold text-sm flex items-center gap-2"
-                >
-                  View All
-                  <span>→</span>
-                </Link>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {tours
-                  .filter((tour) => tour.category === "taj-mahal")
-                  .map((tour) => (
-                    <TourCard
-                      key={tour.slug}
-                      slug={tour.slug}
-                      title={tour.title}
-                      location={tour.location}
-                      duration={tour.duration}
-                      price={tour.price}
-                      priceINR={tour.priceINR}
-                      originalPrice={tour.originalPrice}
-                      originalPriceINR={tour.originalPriceINR}
-                      features={tour.features}
-                      image={tour.images[0]}
-                    />
-                  ))}
-              </div>
-            </div>
           </div>
+          <MarqueeGallery images={galleryImages} />
         </section>
 
         {/* FAQ Section */}

@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
-import { BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
+import { BlogPostingSchema, BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,9 +13,22 @@ export const metadata: Metadata = {
     canonical: "https://www.sofiatajtours.com/blog/best-time-visit-taj-mahal",
   },
   openGraph: {
+    type: "article",
+    url: "https://www.sofiatajtours.com/blog/best-time-visit-taj-mahal",
+    siteName: "Sofia Taj Tours",
+    publishedTime: "2026-01-15",
+    modifiedTime: "2026-01-15",
+    authors: ["Sofia Taj Tours"],
+    section: "Travel Tips",
     title: "Best Time to Visit Taj Mahal (2026) | Complete Weather & Crowd Guide",
     description: "Expert guide to choosing the perfect time for your Taj Mahal visit. Weather, crowds, prices, and insider tips.",
     images: [{ url: "/images/taj (41).jpg", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Time to Visit Taj Mahal (2026) | Complete Weather & Crowd Guide",
+    description: "Expert guide to choosing the perfect time for your Taj Mahal visit. Weather, crowds, prices, and insider tips.",
+    images: ["/images/taj (41).jpg"],
   },
 }
 
@@ -56,6 +69,13 @@ export default function BlogPost() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <BlogPostingSchema
+        headline="Best Time to Visit Taj Mahal (2026) | Complete Weather & Crowd Guide"
+        description={metadata.description as string}
+        image="/images/taj (41).jpg"
+        url="https://www.sofiatajtours.com/blog/best-time-visit-taj-mahal"
+        datePublished="2026-01-15"
+      />
       <FAQSchema faqs={faqs} />
       <Header />
       <main>
@@ -99,7 +119,7 @@ export default function BlogPost() {
             {/* Article Content */}
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Planning your Taj Mahal visit? Timing is everything. The right season can make the difference between a magical experience and an uncomfortable one. After guiding 5,000+ travelers, here's our complete guide to choosing the perfect time for your visit.
+                Planning your Taj Mahal visit? Timing is everything. The right season can make the difference between a magical experience and an uncomfortable one. After guiding 500+ travelers, here's our complete guide to choosing the perfect time for your visit.
               </p>
 
               <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">Quick Answer: Best Time to Visit Taj Mahal</h2>

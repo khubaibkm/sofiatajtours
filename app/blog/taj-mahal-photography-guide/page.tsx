@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
-import { BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
+import { BlogPostingSchema, BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,9 +13,22 @@ export const metadata: Metadata = {
     canonical: "https://www.sofiatajtours.com/blog/taj-mahal-photography-guide",
   },
   openGraph: {
+    type: "article",
+    url: "https://www.sofiatajtours.com/blog/taj-mahal-photography-guide",
+    siteName: "Sofia Taj Tours",
+    publishedTime: "2026-01-10",
+    modifiedTime: "2026-01-10",
+    authors: ["Sofia Taj Tours"],
+    section: "Photography",
     title: "Taj Mahal Photography Guide: 15 Best Spots & Pro Camera Settings",
     description: "Expert tips for capturing perfect Taj Mahal photos. Best angles, camera settings, and golden hour secrets.",
     images: [{ url: "/images/taj (36).jpg", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taj Mahal Photography Guide: 15 Best Spots & Pro Camera Settings",
+    description: "Expert tips for capturing perfect Taj Mahal photos. Best angles, camera settings, and golden hour secrets.",
+    images: ["/images/taj (36).jpg"],
   },
 }
 
@@ -56,6 +69,13 @@ export default function BlogPost() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <BlogPostingSchema
+        headline="Taj Mahal Photography Guide: 15 Best Spots & Pro Camera Settings"
+        description={metadata.description as string}
+        image="/images/taj (36).jpg"
+        url="https://www.sofiatajtours.com/blog/taj-mahal-photography-guide"
+        datePublished="2026-01-10"
+      />
       <FAQSchema faqs={faqs} />
       <Header />
       <main>
@@ -98,7 +118,7 @@ export default function BlogPost() {
             {/* Article Content */}
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Photographing the Taj Mahal is a bucket-list experience for photographers worldwide. After guiding 5,000+ photographers through perfect shoots, I'm sharing the exact spots, settings, and techniques the pros use. Whether you're shooting with a DSLR, mirrorless, or smartphone, this guide has you covered.
+                Photographing the Taj Mahal is a bucket-list experience for photographers worldwide. After guiding 500+ photographers through perfect shoots, I'm sharing the exact spots, settings, and techniques the pros use. Whether you're shooting with a DSLR, mirrorless, or smartphone, this guide has you covered.
               </p>
 
               <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">Quick Reference: Best Camera Settings</h2>

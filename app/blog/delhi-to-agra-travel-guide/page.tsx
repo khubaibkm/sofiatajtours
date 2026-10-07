@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
-import { BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
+import { BlogPostingSchema, BreadcrumbSchema, FAQSchema } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,9 +13,22 @@ export const metadata: Metadata = {
     canonical: "https://www.sofiatajtours.com/blog/delhi-to-agra-travel-guide",
   },
   openGraph: {
+    type: "article",
+    url: "https://www.sofiatajtours.com/blog/delhi-to-agra-travel-guide",
+    siteName: "Sofia Taj Tours",
+    publishedTime: "2026-04-15",
+    modifiedTime: "2026-04-15",
+    authors: ["Sofia Taj Tours"],
+    section: "Travel Planning",
     title: "Delhi to Agra Travel Guide 2026: Train, Car & Bus Comparison",
     description: "Everything you need to know about traveling from Delhi to Agra. Compare all transport options with prices, timings, and insider booking tips.",
     images: [{ url: "/images/taj (99).jpg", width: 1200, height: 800 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Delhi to Agra Travel Guide 2026: Train, Car & Bus Comparison",
+    description: "Everything you need to know about traveling from Delhi to Agra. Compare all transport options with prices, timings, and insider booking tips.",
+    images: ["/images/taj (99).jpg"],
   },
 }
 
@@ -56,6 +69,13 @@ export default function BlogPost() {
   return (
     <>
       <BreadcrumbSchema items={breadcrumbItems} />
+      <BlogPostingSchema
+        headline="Delhi to Agra Travel Guide 2026: Train, Car & Bus Comparison"
+        description={metadata.description as string}
+        image="/images/taj (99).jpg"
+        url="https://www.sofiatajtours.com/blog/delhi-to-agra-travel-guide"
+        datePublished="2026-04-15"
+      />
       <FAQSchema faqs={faqs} />
       <Header />
       <main>
