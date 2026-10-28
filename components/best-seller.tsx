@@ -67,7 +67,7 @@ export function BestSeller({ tour }: { tour: Tour }) {
                   href={`/tours/${tour.slug}`}
                   className="px-8 py-3 rounded-sm bg-primary text-primary-foreground font-bold shadow hover:bg-primary/90 transition"
                 >
-                  Book Now
+                  View Details
                 </Link>
                 <a
                   href={`https://wa.me/919368862429?text=${message}`}
@@ -84,7 +84,7 @@ export function BestSeller({ tour }: { tour: Tour }) {
 
           <Link
             href={`/tours/${tour.slug}`}
-            className="relative block aspect-[4/3] rounded-xl overflow-hidden shadow-xl ring-4 ring-white/70 group"
+            className="relative block order-first lg:order-none aspect-[4/3] rounded-xl overflow-hidden shadow-xl ring-4 ring-white/70 group"
             aria-label={`View ${tour.title}`}
           >
             <Image

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, Clock, Star } from "lucide-react"
+import { MapPin, Clock } from "lucide-react"
 
 interface TourCardProps {
   slug: string
@@ -13,8 +13,6 @@ interface TourCardProps {
   originalPriceINR?: number
   features?: string[]
   image: string
-  rating?: number
-  reviewCount?: number
   locale?: "en" | "es"
 }
 
@@ -28,8 +26,6 @@ export function TourCard({
   originalPriceINR,
   features,
   image,
-  rating,
-  reviewCount,
   locale = "en",
 }: TourCardProps) {
   const es = locale === "es"
@@ -77,14 +73,6 @@ export function TourCard({
           <h3 className="font-semibold text-lg text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
-
-          {rating ? (
-            <div className="flex items-center gap-1 text-sm mb-3">
-              <Star size={15} className="fill-secondary text-secondary" />
-              <span className="font-semibold text-foreground">{rating.toFixed(1)}</span>
-              {reviewCount ? <span className="text-muted-foreground">({reviewCount} {es ? "reseñas" : "reviews"})</span> : null}
-            </div>
-          ) : null}
 
           <div className="mt-auto flex items-end justify-between gap-3 pt-3 border-t border-border/60">
             <div>

@@ -10,7 +10,6 @@ import { HeroSlider } from "@/components/hero-slider"
 import { PartnersSection } from "@/components/partners-section"
 import { BestSeller } from "@/components/best-seller"
 import { MarqueeGallery } from "@/components/marquee-gallery"
-import { TripAdvisorReviews } from "@/components/tripadvisor-reviews"
 import { tours } from "@/data/tours"
 import { heroSlides } from "@/data/site"
 import { Heart, MapPin, Users } from "lucide-react"
@@ -60,8 +59,6 @@ export default function Home() {
       <main>
         <h1 className="sr-only">Taj Mahal Tours from Delhi and Agra - Sofia Taj Tours</h1>
         <HeroSlider slides={heroSlides} />
-        <TripAdvisorReviews />
-
         {bestSeller && <BestSeller tour={bestSeller} />}
 
         <PartnersSection />

@@ -8,10 +8,8 @@ import { BookingWidget } from "@/components/booking-widget"
 import { BreadcrumbSchema, TouristTripSchema, FAQSchema, ProductSchema, VideoSchema } from "@/components/schema-markup"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
 import { LightboxGallery } from "@/components/lightbox-gallery"
-import { TripAdvisorReviews } from "@/components/tripadvisor-reviews"
 import { tours } from "@/data/tours"
-import { tripAdvisor } from "@/data/site"
-import { MapPin, Check, X, Clock, Users, Languages, Car, ShieldCheck, Wallet, Star, MessageCircle, ChevronRight, BedDouble, Info, Headset } from "lucide-react"
+import { MapPin, Check, X, Clock, Users, Languages, Car, ShieldCheck, Wallet, MessageCircle, ChevronRight, BedDouble, Info, Headset } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
@@ -118,10 +116,6 @@ export default async function TourDetailPage({ params }: Props) {
         perPerson: "por persona",
         off: "DTO.",
         support: "Soporte 24/7 por WhatsApp",
-        taRated: "Valorado por viajeros en Tripadvisor",
-        reviewsWord: "reseñas",
-        tripadvisorReviews: "reseñas en Tripadvisor",
-        reviewsTitle: "Lo que dicen los viajeros sobre Sofia Taj Tours",
         faq: "Preguntas frecuentes",
         faqSub: "Todo lo que necesita saber sobre este tour",
         alsoLike: "También le puede interesar",
@@ -161,10 +155,6 @@ export default async function TourDetailPage({ params }: Props) {
         perPerson: "per person",
         off: "OFF",
         support: "24/7 support on WhatsApp",
-        taRated: "Rated by travelers on Tripadvisor",
-        reviewsWord: "reviews",
-        tripadvisorReviews: "Tripadvisor reviews",
-        reviewsTitle: "What Travelers Say About Sofia Taj Tours",
         faq: "Frequently Asked Questions",
         faqSub: "Everything you need to know about this tour",
         alsoLike: "You May Also Like",
@@ -248,18 +238,6 @@ export default async function TourDetailPage({ params }: Props) {
             <div className="mb-6">
               <h1 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-3 text-balance">{tour.title}</h1>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-                {tripAdvisor && (
-                  <a
-                    href={tripAdvisor.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 hover:text-primary transition"
-                  >
-                    <Star size={16} className="fill-secondary text-secondary" />
-                    <span className="font-semibold text-foreground">{tripAdvisor.rating.toFixed(1)}</span>
-                    <span className="underline underline-offset-2">({tripAdvisor.reviewCount} {t.tripadvisorReviews})</span>
-                  </a>
-                )}
                 <span className="inline-flex items-center gap-1.5">
                   <MapPin size={16} className="text-secondary" />
                   {tour.location}
@@ -519,35 +497,11 @@ export default async function TourDetailPage({ params }: Props) {
                     </ul>
                   </div>
 
-                  {tripAdvisor && (
-                    <a
-                      href={tripAdvisor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary transition"
-                    >
-                      <Image src="/logo/tripadvisor_logo.png" alt="Tripadvisor" width={1200} height={266} className="h-7 w-auto" />
-                      <div className="text-sm leading-tight">
-                        <div className="flex mb-1" aria-hidden>
-                          {Array.from({ length: 5 }).map((_, i) => (
-                            <Star key={i} size={14} className="fill-secondary text-secondary" />
-                          ))}
-                        </div>
-                        <p className="font-semibold text-foreground">
-                          {tripAdvisor.rating.toFixed(1)} &bull; {tripAdvisor.reviewCount} {t.reviewsWord}
-                        </p>
-                        <p className="text-muted-foreground">{t.taRated}</p>
-                      </div>
-                    </a>
-                  )}
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        {/* Reviews */}
-        <TripAdvisorReviews title={t.reviewsTitle} className="py-12 md:py-16 bg-muted/30" />
 
         {/* FAQ Section */}
         {tour.faqs && tour.faqs.length > 0 && (
