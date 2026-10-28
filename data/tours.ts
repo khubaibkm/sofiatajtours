@@ -26,8 +26,6 @@ export interface Tour {
   overview?: string[]
   importantInfo?: string[]
   // Optional rich details - each block on the tour page renders only when provided.
-  rating?: number
-  reviewCount?: number
   languages?: string[]
   groupSize?: string
   pickup?: string
