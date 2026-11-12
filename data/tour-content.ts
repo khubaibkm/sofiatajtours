@@ -172,7 +172,6 @@ export const tourContent: Record<string, Partial<Tour>> = {
     ],
     importantInfo: [
       FRIDAY_NOTE,
-      "Group pricing per person: 2 people $120, 3-4 people $100, 5-10 people $85.",
       "Children aged 5-10 receive a 50% discount. Infants aged 0-4 travel free.",
       "Your guide helps you purchase entrance tickets with skip-the-line access.",
       "Free cancellation up to 24 hours before the tour starts.",
